@@ -1,0 +1,187 @@
+div {
+    border: 0px solid black;
+    background: #E7E9D1;
+    margin: 0px;
+    height:100%;
+    width: 100%
+}
+
+li{
+    line-height: 36px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+p{
+    line-height: 20px;
+}
+.nostyle{
+    text-align: right;
+    list-style-type: none;
+}
+.sizes{
+    font-size:16px
+} 
+
+.leftcolunm {
+    float: left;
+    width: 20%;
+    height: 1800px;
+}
+
+.centercolunm {
+    float: left;
+    width: 60%;
+    height: 1800px;
+    background: #fffff0;
+}
+
+.rightcolunm {
+    float: left;
+    width: 20%;
+    height: 1800px;
+}
+
+.baseinfo {
+    float: left;
+    background: #fffff0;
+    width: 50%;
+    height: 200px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.img {
+    float: left;
+    width: 100px;
+    height: 144px;
+    margin-left: 25%;
+    margin-top: 20px;
+    background: #fffff0;
+}
+
+.textinfo {
+    float: left;
+    width: 40%;
+    height: 150px;
+    margin-left: 5%;
+    margin-top: 10px;
+    background: #fffff0;
+}
+
+.intinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 280px;
+}
+
+.eduinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.honourinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.pubjourinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.pubconfinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.patentinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.chinfo {
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 100%;
+    height: 200px;
+}
+
+.title{
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 95%;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.linef{
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 75%;
+    margin-left: 20%;
+    margin-right: 6%;
+    height: 10px;
+}
+
+.lines{
+    border: 0px solid black;
+    float: left;
+    background: #fffff0;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 6%;
+    height: 12px;
+}
+
+.textedu {
+    border: 0px solid black;
+    float: left;
+    width: 80%;
+    height: 150px;
+    margin-left: 10%;
+    background: #fffff0;
+}
+
+
+
+.clear{
+    background: #fffff0;
+    width: 80%;
+    height: 1px;
+    height: 1px;
+    clear: both;
+}
+
+
+
+.centercolunm::after{
+    content:" ";
+    display: block;
+    clear: both;
+}
+.centercolunm::before{
+    content:" ";
+    display: table;
+    clear: both;
+}
