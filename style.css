@@ -3,25 +3,6 @@
     padding: 0;
 }
 
-.container {
-        background-color: #FAE6FA;
-      }
-      .left {
-        background-color: #FAE6FA;
-        float: left;
-        width: 100px;
-      }
-      .right {
-        background-color: #FAE6FA;
-        float: right;
-        width: 100px;
-      }
-      .main {
-        background-color: #F8F8F8;
-        margin-left: 100px;
-        margin-right: 100px;
-      }
-
 li{
     list-style-type: disc ;
     margin-left:5%;
