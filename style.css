@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+h2{
+    color: #F8F8F8;
+}
+span{
+    background-color: #9B1D98;
+}
+
+b{
+    line-height: 20%;
+}
+p{
+    Font-weight: normal;
+    font-size: 10pt;
+    line-height:200%
+}
+tr{
+    line-height:200%
+}
+ul{
+    Font-weight: normal;
+    font-size: 10pt;
+    list-style-type: circle;
+    line-height:200%
+}
+li{
+    list-style-type: disc ;
+    margin-left:5%;
+    line-height:200%;
+    padding:5px;
+}
+h1{
+    font-family:"Times New Roman";
+    text-align: center;
+}
+
+body{
+    margin-top:50px;
+    margin-bottom:0px;
+    margin-right:20%;
+    margin-left:20%;
+}
+.box {
+	column-count: 2;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+}
+
+.my_img{
+    display: block;
+    margin: auto;
+    width: 45%;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_3373080_mefuod36dv.woff2?t=1651511952500') format('woff2'),
+       url('//at.alicdn.com/t/font_3373080_mefuod36dv.woff?t=1651511952500') format('woff'),
+       url('//at.alicdn.com/t/font_3373080_mefuod36dv.ttf?t=1651511952500') format('truetype');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    }
+
+.hr-double {
+		border: 0;
+        padding-top: 2px;
+		border-top: 5px double #9B1D98;
+        padding:10px;
+	}
+
+.hr-edge-weak {
+		border: 0;
+		padding-top: 1px;
+		background: linear-gradient(to right, transparent, #d0d0d5, transparent);
+        padding:10px;
+	}
