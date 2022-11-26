@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
 }
+p{
+    line-height:200%;
+}
 
 li{
     list-style-type: disc ;
-    margin-left:5%;
+    margin-left:2%;
     line-height:200%;
     padding:5px;
 }
@@ -33,21 +36,6 @@ body{
     width: 45%;
 }
 
-@font-face {
-  font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_3373080_mefuod36dv.woff2?t=1651511952500') format('woff2'),
-       url('//at.alicdn.com/t/font_3373080_mefuod36dv.woff?t=1651511952500') format('woff'),
-       url('//at.alicdn.com/t/font_3373080_mefuod36dv.ttf?t=1651511952500') format('truetype');
-}
-
-.iconfont{
-    font-family:"iconfont" !important;
-    font-size:16px;font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-    }
-
 .hr-edge-weak {
 		border: 0;
 		padding-top: 1px;
@@ -56,7 +44,120 @@ body{
 	}
 
 
+/*分界线*/
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.woff2?t=1669442301374') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.woff?t=1669442301374') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.ttf?t=1669442301374') format('truetype');
+}
 
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.woff2?t=1669442473198') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.woff?t=1669442473198') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.ttf?t=1669442473198') format('truetype');
+}
+
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.woff2?t=1669442556346') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.woff?t=1669442556346') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.ttf?t=1669442556346') format('truetype');
+}
+
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.woff2?t=1669443166835') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.woff?t=1669443166835') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.ttf?t=1669443166835') format('truetype');
+}
+
+
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-doctorial:before {
+  content: "\eb73";
+}
+
+.icon-boshi:before {
+  content: "\ecb5";
+}
+
+.icon-boshi:before {
+  content: "\e74f";
+}
+
+.icon-boshi:before {
+  content: "\e8c6";
+}
+
+/*奖牌*/
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.woff2?t=1669449362677') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.woff?t=1669449362677') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.ttf?t=1669449362677') format('truetype');
+}
+
+.icon-boshi:before {
+  content: "\e613";
+}
+
+/* 服务 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_bey1guagad.woff2?t=1669451932222') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_bey1guagad.woff?t=1669451932222') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_bey1guagad.ttf?t=1669451932222') format('truetype');
+}
+
+.icon-boshi:before {
+  content: "\e61f";
+}
+
+/* 论文 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.woff2?t=1669452169212') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.woff?t=1669452169212') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.ttf?t=1669452169212') format('truetype');
+}
+
+.icon-boshi:before {
+  content: "\e612";
+}
+
+/* 庆祝 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.woff2?t=1669452429828') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.woff?t=1669452429828') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.ttf?t=1669452429828') format('truetype');
+}
+
+.icon-boshi:before {
+  content: "\e673";
+}
+
+/* 关注 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.woff2?t=1669452744421') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.woff?t=1669452744421') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.ttf?t=1669452744421') format('truetype');
+}
+
+.icon-boshi:before {
+  content: "\e600";
+}
 
 /* 全局属性 */
 #write {
