@@ -6,6 +6,12 @@ p{
     line-height:200%;
 }
 
+b.bold {
+    color: #9B1D98;
+    font-weight: bold;
+
+}
+
 li{
     list-style-type: disc ;
     margin-left:2%;
