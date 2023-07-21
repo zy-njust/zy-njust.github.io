@@ -1,9 +1,0 @@
-@article{zeng2019comprehensive,
-  title={Comprehensive link sharing avoidance and switch aggregation for software-defined data center networks},
-  author={Zeng, Yue and Guo, Songtao and Liu, Guiyan},
-  journal={Future Generation Computer Systems},
-  volume={91},
-  pages={25--36},
-  year={2019},
-  publisher={Elsevier}
-}
