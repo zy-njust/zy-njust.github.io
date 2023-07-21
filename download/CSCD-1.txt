@@ -1,8 +1,0 @@
-@article{潘勇2016一种基于缺陷地结构的,
-  title={一种基于缺陷地结构的3频天线设计},
-  author={潘勇 and 赵二刚 and 马永涛 and 高艺 and 熊江 and 曾悦},
-  journal={南开大学学报：自然科学版},
-  number={5},
-  pages={35-39},
-  year={2016},
-}
