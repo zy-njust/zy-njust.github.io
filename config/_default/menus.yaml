@@ -23,7 +23,7 @@ main:
     url: '#contact'
     weight: 60
   - name: Gallery
-    url: '#contact'
+    url: '#gallerys'
     weight: 70
 
 # Link to a PDF of your resume/CV from the menu.
