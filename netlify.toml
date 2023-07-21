@@ -1,14 +1,21 @@
 [build]
-  publish = "exampleSite/public"
-  command = "cd exampleSite && hugo --gc --minify --themesDir ../.."
-  
-[build.environment]
-  HUGO_VERSION = "0.69.0"
-  HUGO_ENV = "production"
-  HUGO_THEME = "repo"
-  HUGO_BASEURL = "https://anatole-demo.netlify.app"
+  command = "hugo --gc --minify -b $URL"
+  publish = "public"
 
-[[headers]]
-  for = "/*"
-    [headers.values]
-      Access-Control-Allow-Origin = "*"
+[build.environment]
+  HUGO_VERSION = "0.111.3"
+  HUGO_ENABLEGITINFO = "true"
+
+[context.production.environment]
+  HUGO_ENV = "production"
+
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[[plugins]]
+  package = "netlify-plugin-hugo-cache-resources"
+  [plugins.inputs]
+    debug = true

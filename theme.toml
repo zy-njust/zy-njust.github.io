@@ -1,22 +1,49 @@
-# theme.toml template for a Hugo theme
-# See https://github.com/gohugoio/hugoThemes#themetoml for an example
-
-name = "Anatole"
+name = "Academic"
 license = "MIT"
-licenselink = "https://github.com/lxndrblz/anatole/blob/master/LICENSE"
-description = "Anatole is a beautiful minimalist two-column hugo theme based on farbox-theme-Anatole."
-homepage = "https://github.com/lxndrblz/anatole/"
-demosite = "https://anatole-demo.netlify.app/"
-tags = ["blog", "responsive", "clean", "minimalist", "minimal", "personal", "dark"]
-features = ["blog", "seo", "responsive", "mobile", "disqus", "fontawesome", "analytics", "math"]
-min_version = "0.53.0"
+licenselink = "https://github.com/wowchemy/starter-hugo-academic/blob/master/LICENSE.md"
+description = "Use the website builder to easily build your site with 50+ widgets and deploy with one click! Fully customize your site with themes, plugins, and language packs."
+homepage = "https://github.com/wowchemy/starter-hugo-academic/"
+demosite = "https://wowchemy.com/hugo-themes/"
+tags = ["widgets",
+        "resume",
+        "portfolio",
+        "responsive",
+        "clean",
+        "personal",
+        "company",
+        "blog",
+        "minimal",
+        "light",
+        "dark",
+        "multilingual",
+        "documentation",
+        "landing page",
+        "projects",
+        "single page",
+        "contact form",
+        "mobile",
+        "gallery",
+        "search",
+        "presentation",
+        "simple",
+        "minimalist",
+        "starter",
+        "modern",
+        "one page",
+        "customizable",
+        "technical",
+        "product",
+        "slide"
+        ]
+features = ["page builder", "widgets", "themes", "search", "research publication system", "filterable portfolio",
+            "blog", "create courses", "talks", "events", "slides", "gallery", "contact form"]
 
 [author]
-  name = "Alexander Bilz"
-  homepage = "https://alexbilz.com"
+  name = "George Cushen"
+  homepage = "https://georgecushen.com"
 
 # If porting an existing theme
 [original]
-  author = "Cai Cai"
-  homepage = "https://www.caicai.me/"
-  repo = "https://github.com/hi-caicai/farbox-theme-Anatole"
+  name = ""
+  homepage = ""
+  repo = ""

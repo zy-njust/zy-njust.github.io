@@ -1,8 +1,10 @@
-**/themes/
-demo/
-.hugo/*
-!.hugo/version
+# IDEs
+.idea/
+
+# Hugo
+resources/
+public/
+jsconfig.json
+node_modules/
+go.sum
 .hugo_build.lock
-/node_modules
-.devcontainer
-exampleSite/public/
