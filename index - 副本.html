@@ -1,43 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>导航栏示例</title>
+    <title>固定导航栏示例</title>
     <style>
-        /* 导航栏样式 */
-        .navbar {
-            background-color: #f1f1f1;
-            overflow: hidden;
-            padding: 10px;
-        }
-
-        /* LOGO样式 */
-        .logo {
-            float: right;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        /* 导航链接样式 */
-        .nav-links {
-            list-style: none;
+        /* 样式化导航栏 */
+        ul.navbar {
+            list-style-type: none;
             margin: 0;
             padding: 0;
+            background-color: #f1f1f1;
+            overflow: hidden;
+            width: 100%;
         }
 
-        .nav-links li {
+        li.nav-item {
             float: left;
-            margin-left: 20px;
+        }
+
+        li.nav-item a {
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li.nav-item a:hover {
+            background-color: #ddd;
+        }
+
+        /* 添加一个空白的占位元素，防止导航栏覆盖页面内容 */
+        .navbar-placeholder {
+            height: 40px; /* 与导航栏高度相同 */
+        }
+
+        /* 添加一个类来控制导航栏固定时调整内容的 margin */
+        .navbar-fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        /* 调整内容的 margin，给导航栏留出空间 */
+        .content-with-navbar {
+            margin-top: 40px; /* 与导航栏高度相同 */
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="logo">LOGO</div>
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <li class="nav-item"><a href="#home">首页</a></li>
+        <li class="nav-item"><a href="#about">关于</a></li>
+        <li class="nav-item"><a href="#services">服务</a></li>
+        <li class="nav-item"><a href="#contact">联系我们</a></li>
+    </ul>
+
+    <!-- 一个空白的占位元素，用于防止导航栏覆盖页面内容 -->
+    <div class="navbar-placeholder"></div>
+
+    <!-- 其他内容 -->
+    <div class="content-with-navbar">
+        <div id="home" style="height: 500px; background-color: lightblue;">
+            <h1>首页内容</h1>
+        </div>
+
+        <div id="about" style="height: 500px; background-color: lightgreen;">
+            <h1>关于内容</h1>
+        </div>
+
+        <div id="services" style="height: 500px; background-color: lightpink;">
+            <h1>服务内容</h1>
+        </div>
+
+        <div id="contact" style="height: 500px; background-color: lightsalmon;">
+            <h1>联系我们内容</h1>
+        </div>
     </div>
+
+    <!-- 添加 JavaScript -->
+    <script>
+        // 在页面加载完成后执行以下代码
+        document.addEventListener('DOMContentLoaded', function () {
+            // 获取导航栏元素
+            var navbar = document.querySelector('ul.navbar');
+            // 获取占位元素
+            var navbarPlaceholder = document.querySelector('.navbar-placeholder');
+            // 获取内容元素
+            var contentWithNavbar = document.querySelector('.content-with-navbar');
+
+            // 获取导航栏的初始位置
+            var initialNavbarOffset = navbar.offsetTop;
+
+            // 添加滚动事件监听器
+            window.addEventListener('scroll', function () {
+                // 获取页面滚动的距离
+                var scrollDistance = window.pageYOffset;
+
+                // 如果页面滚动的距离超过导航栏的初始位置，就将导航栏固定在顶部
+                if (scrollDistance >= initialNavbarOffset) {
+                    navbar.classList.add('navbar-fixed');
+                    contentWithNavbar.style.marginTop = '40px'; // 给内容留出空间
+                } else {
+                    // 否则，恢复导航栏的默认位置
+                    navbar.classList.remove('navbar-fixed');
+                    contentWithNavbar.style.marginTop = '0'; // 恢复内容的 margin
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -44,7 +44,7 @@ header hr {
 
 body{
     color: #4a4a4a;
-    margin-top:50px;
+    margin-top:80px;
     margin-bottom:0px;
     margin-right:10%;
     margin-left:10%;
@@ -55,6 +55,42 @@ body{
 	-moz-column-count: 2;
 	-webkit-column-count: 2;
 }
+
+/* 椭圆形容器样式 */
+#Home {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#ResearchInterests {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#News {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#Experiences {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#Publications {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#AcademicServices {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
+
+#HonorsAndAwards {
+    padding-top: 80px;/* 60px是导航栏高度 */
+    margin-top: -80px;
+ }
 
 /* 椭圆形容器样式 */
 .elliptical-image {
@@ -103,7 +139,7 @@ body{
 
 .hover-underline {
   display: inline-block;
-  position: relative;
+  position: fixed;
 }
 
 .log {
