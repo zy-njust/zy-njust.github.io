@@ -1,0 +1,10 @@
+@article{pan2015compact,
+  title={A compact antenna with frequency and pattern reconfigurable characteristics},
+  author={Pan, Yong and Ma, Yongta and Xiong, Jiang and Hou, Ziye and Zeng, Yue},
+  journal={Microwave and Optical Technology Letters},
+  volume={57},
+  number={11},
+  pages={2467--2471},
+  year={2015},
+  publisher={Wiley Online Library}
+}
