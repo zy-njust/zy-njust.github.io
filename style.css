@@ -102,25 +102,30 @@ body{
     .page-container {
       display: flex;
       flex-direction: row; /* 水平方向排列，左右双栏 */
-    }
-
-    /* 右侧栏样式 */
-    .right-column {
-      flex: 6; /* 右侧栏占据可用空间的2/3 */
-      background-color: #ffffff;
-      padding: 30px;
-      margin-left: 20%;
+      flex-wrap: wrap; /* 允许分栏换行 */
     }
 
     /* 左侧栏样式 */
     .left-column {
-      flex: 0.8; /* 左侧栏占据可用空间的1/3 */
+      flex: 0 0 250px; /* 左侧栏固定宽度为200px */
+      padding: 20px;
+      /*flex: 0 0 200px; !* 左侧栏固定宽度为200px *!*/
+      /*background-color: #ffffff;*/
+      /*padding: 25px;*/
+      /*position: fixed; !* 固定位置 *!*/
+      /*top: 60px; !* 顶部边距为0 *!*/
+      /*bottom: 0; !* 底部边距为0 *!*/
+      /*width: 280px;*/
+    }
+
+    /* 右侧栏样式 */
+    .right-column {
+      flex: 1; /* 右侧栏占据剩余的可用空间 */
+      padding: 20px;
       background-color: #ffffff;
-      padding: 25px;
-      position: fixed; /* 固定位置 */
-      top: 60px; /* 顶部边距为0 */
-      bottom: 0; /* 底部边距为0 */
-      width: 280px;
+      /*padding: 30px;*/
+      /*position: fixed; !* 固定位置 *!*/
+      /*margin-left: 20%;*/
     }
 
 /* 图片样式 */
