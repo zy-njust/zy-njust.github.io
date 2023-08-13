@@ -4,6 +4,7 @@
 }
 p{
     line-height:200%;
+  /*font-size: 14px;*/
 }
 
 header {
@@ -16,14 +17,39 @@ header {
     text-align: center;
 }
 
-b.bold {
+.custom-paragraph {
+    margin-top: 10px; /* 调整起始行间距的数值可以根据你的需要进行修改 */
+}
+
+.elliptical-box span {
+    font-weight: bold;
+    font-size: 12px; /* 设置内部文字的字体大小为 14px */
+}
+
+.elliptical-box {
+    display: inline; /* 将元素变成行内块元素 */
+    padding: 0px 10px; /* 上下边距更小，左右边距可根据需要调整 */
+    border: 2px solid #9B1D98; /* 边框样式和颜色 */
+    border-radius: 8px; /* 设置圆角半径为 30px，使其呈现椭圆效果 */
     color: #9B1D98;
+    margin-right:5%;
+    float: right; /* 向右浮动容器 */
+    line-height: 1.2; /* 设置较小的行高 */
+}
+.elliptical-box:hover {
+    background-color: #9B1D98; /* 悬停时改变背景颜色 */
+    color: #fff; /* 悬停时改变字体颜色 */
+}
+
+b.bold {
+    /*color: #9B1D98;*/
     font-weight: bold;
 
 }
 
 li{
-    list-style-type: disc ;
+    list-style-type: decimal ;
+    font-size: 14px;
     margin-left:2%;
     line-height:200%;
     padding:5px;
@@ -108,14 +134,14 @@ body{
     /* 左侧栏样式 */
     .left-column {
       flex: 0 0 250px; /* 左侧栏固定宽度为200px */
-      padding: 20px;
+      padding: 5px;
       /*flex: 0 0 200px; !* 左侧栏固定宽度为200px *!*/
       /*background-color: #ffffff;*/
       /*padding: 25px;*/
-      /*position: fixed; !* 固定位置 *!*/
+      position: fixed; /* 固定位置 */
       /*top: 60px; !* 顶部边距为0 *!*/
       /*bottom: 0; !* 底部边距为0 *!*/
-      /*width: 280px;*/
+      width: 280px;
     }
 
     /* 右侧栏样式 */
@@ -125,7 +151,7 @@ body{
       background-color: #ffffff;
       /*padding: 30px;*/
       /*position: fixed; !* 固定位置 *!*/
-      /*margin-left: 20%;*/
+      margin-left: 20%;
     }
 
 /* 图片样式 */
@@ -195,7 +221,7 @@ body{
     /*justify-content: space-between;*/
 	align-items: center;
     width: 90%;
-    height: 40px; /* 设置图片高度 */
+    height: 35px; /* 设置图片高度 */
     margin: 0 10%;
 }
 
@@ -401,7 +427,7 @@ body{
   letter-spacing: 0px;
   word-break: break-word;
   word-wrap: break-word;
-  text-align: left;
+  text-align: justify;
   font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -466,6 +492,7 @@ h4 {
   font-size: 1.2rem;
 }
 h5 {
+  /*color: #9B1D98;*/
   font-size: 1.1rem;
 }
 h6 {
@@ -475,25 +502,23 @@ h6 {
 /*列表*/
 ul,
 ol {
+  list-style-type: decimal;
   margin-top: 8px;
   margin-bottom: 8px;
   padding-left: 25px;
   color: black;
 }
 ul {
-  list-style-type: disc;
+  list-style-type: decimal;
 }
 ul ul {
-  list-style-type: square;
-}
-ol {
   list-style-type: decimal;
 }
 li section {
   margin-top: 5px;
   margin-bottom: 5px;
   line-height: 1.7rem;
-  text-align: left;
+  text-align: justify;
   color: rgb(1,1,1); /* 只要是纯黑色微信编辑器就会把color这个属性吞掉。。。*/
   font-weight: 500;
 }
@@ -550,7 +575,7 @@ span img {
 /*表格*/
 table {
   display: table;
-  text-align: left;
+  text-align: justify;
 }
 tbody {
   border: 0;
@@ -566,7 +591,7 @@ table tr td {
   font-size: 1rem;
   border: 1px;
   padding: 5px 10px;
-  text-align: left;
+  text-align: justify;
 }
 table tr th {
   font-weight: normal;
