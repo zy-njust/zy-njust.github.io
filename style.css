@@ -399,6 +399,17 @@ body{
 
 /* 兴趣 */
 
+/* ResearchGate */
+@font-face {
+  font-family: 'iconfont';  /* Project id 3793575 */
+  src: url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.woff2?t=1692693106108') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.woff?t=1692693106108') format('woff'),
+       url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.ttf?t=1692693106108') format('truetype');
+}
+
+.icon-researchgate:before {
+  content: "\ec7e";
+}
 
 @font-face {
   font-family: 'iconfont';  /* Project id 3793575 */
