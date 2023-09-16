@@ -4,6 +4,7 @@
 }
 p{
     line-height:200%;
+    text-align: justify;
   /*font-size: 14px;*/
 }
 
@@ -65,6 +66,7 @@ li{
     margin-left:1%;
     line-height: 23px;
     padding:5px;
+    text-align: justify;
 }
 
 h1{
@@ -88,8 +90,8 @@ body{
     color: #4a4a4a;
     margin-top:80px;
     margin-bottom:0px;
-    margin-right:10%;
-    margin-left:10%;
+    margin-right:15%;
+    margin-left:15%;
 }
 
 .box {
@@ -157,7 +159,7 @@ body{
       position: fixed; /* 固定位置 */
       /*top: 60px; !* 顶部边距为0 *!*/
       /*bottom: 0; !* 底部边距为0 *!*/
-      width: 280px;
+      width: 10%;
     }
 
     /* 右侧栏样式 */
@@ -190,7 +192,7 @@ body{
 }
 
 .log {
-    margin-left: 75%;
+    margin-left: 70%;
     position: fixed;
 }
 
