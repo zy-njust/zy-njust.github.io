@@ -136,6 +136,18 @@ body{
     margin-top: -80px;
  }
 
+/* CCF P样式 */
+.ccf-span {
+    color: white;
+    background-color: #264B9A; /* 默认文本颜色为蓝色 */
+    border-radius: 5px; /* 设置圆角效果，这里的10px表示圆角的大小 */
+    transition: color 0.3s ease; /* 添加过渡效果，使颜色变化更平滑 */
+}
+
+.ccf-span:hover {
+    background-color: red; /* 悬停时文本颜色变为红色 */
+}
+
 /* 椭圆形容器样式 */
 .elliptical-image {
     width: 150px; /* 设置图片宽度 */
@@ -191,8 +203,26 @@ body{
   position: fixed;
 }
 
-.log {
+
+.image-container {
+    /* 可以添加一些额外的样式来控制容器，比如宽度、高度、边框等 */
+    text-align: left; /* 确保图片从左边开始 */
     margin-left: 70%;
+}
+
+.image-item {
+    display: inline-block; /* 让图片所在的div并排显示 */
+    vertical-align: top; /* 垂直对齐方式，根据需要调整 */
+    margin-right: 10px; /* 图片之间的间距 */
+}
+
+.department {
+    margin-left: 65%;
+    position: fixed;
+}
+
+.log {
+    margin-left: 65%;
     position: fixed;
 }
 
@@ -570,8 +600,12 @@ a {
   text-decoration: none;
   word-wrap: break-word;
   font-weight: bold;
-  color: black;
+  color: #264B9A;
   border-bottom: 1px solid black;
+}
+
+a:hover {
+    color: red; /* 悬停时变为红色 */
 }
 
 /*行内代码*/
