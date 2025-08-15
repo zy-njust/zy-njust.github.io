@@ -240,13 +240,49 @@
     p { line-height: 2; color: var(--text); margin: 0 0 10px; }
     .muted { color: var(--muted); font-size: 14px; }
     @media (max-width: 960px) {
-      :root { --sidebar-w: 100vw; }
-      .sidebar { height: auto; border-right: none; border-bottom: 1px solid #e5e7eb; padding-left: 16px; }
-      .content { top: calc(var(--header-h) + 420px); left: 0; }
-      .nav { display: none; flex-direction: column; gap: 10px; background: var(--bg); position: absolute; top: var(--header-h); left: 0; right: 0; padding: 16px; border-bottom: 1px solid #e5e7eb; }
-      .nav.active { display: flex; }
-      .menu-toggle { display: block; }
-    }
+  :root { --sidebar-w: 100%; }
+
+  .sidebar {
+    position: relative; /* 不固定 */
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding-left: 16px;
+  }
+
+  .content {
+    position: relative; /* 不固定 */
+    top: 0;
+    left: 0;
+    padding: 16px;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--bg);
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    padding: 16px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .nav.active { display: flex; }
+
+  .menu-toggle { display: block; }
+}
+
+    /*@media (max-width: 960px) {*/
+    /*  :root { --sidebar-w: 100vw; }*/
+    /*  .sidebar { height: auto; border-right: none; border-bottom: 1px solid #e5e7eb; padding-left: 16px; }*/
+    /*  .content { top: calc(var(--header-h) + 420px); left: 0; }*/
+    /*  .nav { display: none; flex-direction: column; gap: 10px; background: var(--bg); position: absolute; top: var(--header-h); left: 0; right: 0; padding: 16px; border-bottom: 1px solid #e5e7eb; }*/
+    /*  .nav.active { display: flex; }*/
+    /*  .menu-toggle { display: block; }*/
+    /*}*/
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
