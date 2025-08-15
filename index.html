@@ -1,105 +1,301 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>HomePage</title>
-    <style>
-    .elliptical-image {
-        position: relative;
-        display: inline-block;
-        text-align: center;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Dr. Yue Zeng's Website - 欢迎来到曾悦的主页</title>
+  <style>
+    :root {
+      --header-h: 64px;
+      --sidebar-w: 30vw;
+      --bg: #ffffff;
+      --card: #f9fafb;
+      --muted: #6b7280;
+      --accent: #9B1D98; /* 标题颜色和悬停颜色 */
+      --text: #4a4a4a; /* 默认字体颜色 */
     }
-    .elliptical-image img {
-        display: block;
-        margin: 0 auto;
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+        font-family: "Trebuchet MS", sans-serif;
+      /*font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";*/
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 15px; /* 设置默认字体大小为16像素 */
+    line-height: 23px;
+    color: #4a4a4a;
+    margin-top:80px;
+    background: var(--bg);
     }
-    .text-container {
-        text-align: center;
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15%; /* 左右空白 15% */
+    background: var(--bg);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1000;
+  }
+    /* 导航栏样式 */
+    .nav {
+      display: flex;
+      gap: 50px; /* 栏目间距 */
     }
-    </style>
-    <link rel="shortcut icon" href="img/my.ico" />
-    <link rel="stylesheet", type="text/css", href="style.css">
+  .nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 400; /* 初始不加粗 */
+    font-size: 15px;
+    transition: color 0.3s ease, font-weight 0.3s ease; /* 悬停加粗 */
+      border-bottom: none;
+  }
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--accent); /* 下划线颜色改为悬停色 */
+  transition: width 0.3s ease;
+}
+  .nav a:hover {
+    color: var(--accent); /* 悬停字体颜色 */
+    font-weight: 700;     /* 悬停加粗 */
+  }
+    .nav a:hover::after {
+      width: 100%; /* 从中间向两边扩展 */
+    }
+
+.elliptical-image img {
+  width: 160px;   /* 宽度调大，避免削边 */
+  height: 200px;  /* 高度与宽度接近，保持完整 */
+  object-fit: cover;
+  border-radius: 50% / 50%; /* 更接近圆，但上下稍扁 */
+  border: 3px solid #e5e7eb;
+}
+
+
+.profile-links p {
+  margin: 6px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 2;
+}
+.profile-links a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+    border-bottom: none;
+}
+.profile-links a:hover {
+  color: var(--accent);
+}
+
+  .icons {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .image-item img {
+    display: block;
+  }
+    .icons a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text);
+    }
+    .sidebar {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; bottom: 0;
+      width: var(--sidebar-w);
+      padding: 16px 16px 16px 15%;
+      overflow-y: auto;
+      background: var(--bg);
+      text-align: center;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50% / 35%;
+      border: 2px solid #e5e7eb;
+      margin-bottom: 12px;
+    }
+    .profile-info {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .profile-info strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .links {
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .links a {
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+    }
+    .links a:hover { background: #e0e7ff; }
+    .menu {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .menu a {
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      color: var(--text);
+      /*border-radius: 8px;*/
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+    }
+    .menu a:hover { background: #e0e7ff; }
+    .content {
+      position: fixed;
+      top: var(--header-h);
+      left: var(--sidebar-w);
+      right: 0; bottom: 0;
+      overflow-y: auto;
+      padding: 24px 15% 40px 24px; /* 上-右-下-左，右边留白 15% */
+      background: var(--bg);
+    }
+    ul.disc {
+            margin-top: 4px;      /* 上边距，可改大小 */
+    list-style-type: disc; /* 使用实心圆点 */
+    }
+    .ccf-span {
+    color: white;
+    background-color: #264B9A; /* 默认文本颜色为蓝色 */
+    border-radius: 5px; /* 设置圆角效果，这里的10px表示圆角的大小 */
+    transition: color 0.3s ease; /* 添加过渡效果，使颜色变化更平滑 */
+}
+.custom-paragraph {
+    margin-top: 10px; /* 调整起始行间距的数值可以根据你的需要进行修改 */
+}
+    li {
+  line-height: 2; /* 数值越大行间距越大 */
+}
+        ul {
+  line-height: 2; /* 数值越大行间距越大 */
+}
+    a {
+      text-decoration: none;
+      word-wrap: break-word;
+      font-weight: bold;
+      color: #264B9A;
+      border-bottom: 1px solid black;
+    }
+    a:hover {
+        color: red; /* 悬停时变为红色 */
+    }
+    h1, h2 { margin: 0 0 8px; }
+    h1 { font-size: 22px; }
+    /*h2 { font-size: 18px; color: var(--accent); } !* 保持标题颜色 *!*/
+    h2 {
+    color: var(--accent);
+    font-size: 21px;
+    border-bottom: 1px solid #9B1D98;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+    p { line-height: 2; color: var(--text); margin: 0 0 10px; }
+    .muted { color: var(--muted); font-size: 14px; }
+    @media (max-width: 960px) {
+      :root { --sidebar-w: 100vw; }
+      .sidebar { height: auto; border-right: none; border-bottom: 1px solid #e5e7eb; padding-left: 16px; }
+      .content { top: calc(var(--header-h) + 420px); left: 0; }
+      .nav { display: none; flex-direction: column; gap: 10px; background: var(--bg); position: absolute; top: var(--header-h); left: 0; right: 0; padding: 16px; border-bottom: 1px solid #e5e7eb; }
+      .nav.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
-
-<body class='typora-export os-windows'>
-
-      <!-- 页面整体布局为左右双栏 -->
-    <div class="page-container">
-      <!-- 左侧栏 -->
-    <div class="left-column">
-          <!-- 显示圆形图片 -->
-        <div class="elliptical-image">
-    <img src="img/my.jpg" alt="椭圆形图片">
-    <div class="text-container">
-        <br>
-        <h3>曾悦</h3>
-        <h3>Zeng Yue</h3>
-                <br>
+<body>
+  <header class="header">
+    <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('active')"><i class="fas fa-bars"></i></button>
+    <nav class="nav">
+      <a href="#Home">Home</a>
+      <a href="#ResearchInterests">Research Interests</a>
+      <a href="#News">News</a>
+      <a href="#Experiences">Experiences</a>
+      <a href="#Publications">Publications</a>
+      <a href="#AcademicServices">Academic Services</a>
+      <a href="#TeamMembers">Team Members</a>
+      <a href="#InvitedTalks">Invited Talks</a>
+    </nav>
+  <div class="icons">
+    <div class="image-item">
+      <img src="img/CSE.jpg" alt="计算机科学与工程学院" width="36" height="40">
     </div>
-</div>
-        <br>
-        <p> <svg t="1712151569100" class="icon" viewBox="-20 -100 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9108" width="16" height="16"><path d="M704.512 982.016H319.488c-16.384 0-29.184-13.312-29.184-29.184V258.048c0-16.384 13.312-29.184 29.184-29.184 16.384 0 29.184 13.312 29.184 29.184v665.088h326.656V258.048c0-16.384 13.312-29.184 29.184-29.184 16.384 0 29.184 13.312 29.184 29.184v694.784c0.512 15.872-12.8 29.184-29.184 29.184z" fill="#333333" p-id="9109"></path><path d="M833.024 406.528c-7.168 0-14.336-2.56-20.48-8.192L512 112.128 211.456 398.336c-11.776 11.264-30.208 10.752-41.472-1.024-11.264-11.776-10.752-30.208 1.024-41.472L491.52 50.176c11.264-10.752 29.184-10.752 40.448 0l321.024 305.664c11.776 11.264 12.288 29.696 1.024 41.472a28.3648 28.3648 0 0 1-20.992 9.216z" fill="#333333" p-id="9110"></path><path d="M512 556.032c-57.344 0-104.448-46.592-104.448-104.448s46.592-104.448 104.448-104.448 104.448 46.592 104.448 104.448-47.104 104.448-104.448 104.448z m0-149.504c-25.088 0-45.568 20.48-45.568 45.568s20.48 45.568 45.568 45.568 45.568-20.48 45.568-45.568c0-25.6-20.48-45.568-45.568-45.568zM582.656 982.016H441.344c-16.384 0-29.184-13.312-29.184-29.184v-192.512c0-16.384 13.312-29.184 29.184-29.184h141.312c16.384 0 29.184 13.312 29.184 29.184v192.512c0 15.872-12.8 29.184-29.184 29.184z m-112.128-58.88H552.96v-133.632H470.528v133.632zM994.816 600.064h-289.792c-16.384 0-29.184-13.312-29.184-29.184V467.968c0-16.384 13.312-29.184 29.184-29.184h289.792c16.384 0 29.184 13.312 29.184 29.184v102.912c0 16.384-13.312 29.184-29.184 29.184z m-260.608-58.368h230.912v-44.032h-230.912v44.032z" fill="#333333" p-id="9111"></path><path d="M918.528 982.016h-214.016c-16.384 0-29.184-13.312-29.184-29.184v-380.416c0-16.384 13.312-29.184 29.184-29.184h214.016c16.384 0 29.184 13.312 29.184 29.184v380.416c0.512 15.872-12.8 29.184-29.184 29.184z m-184.32-58.88h155.136v-322.048h-155.136v322.048zM318.976 600.064H29.184c-16.384 0-29.184-13.312-29.184-29.184V467.968c0-16.384 13.312-29.184 29.184-29.184h289.792c16.384 0 29.184 13.312 29.184 29.184v102.912c0 16.384-12.8 29.184-29.184 29.184z m-260.096-58.368h230.912v-44.032H58.88v44.032z" fill="#333333" p-id="9112"></path><path d="M319.488 982.016H105.472c-16.384 0-29.184-13.312-29.184-29.184v-380.416c0-16.384 13.312-29.184 29.184-29.184h214.016c16.384 0 29.184 13.312 29.184 29.184v380.416c0 15.872-13.312 29.184-29.184 29.184z m-184.832-58.88h155.136v-322.048H134.656v322.048zM811.52 752.64c-13.312 0-24.576-10.752-24.576-24.576v-51.2c0-13.312 10.752-24.576 24.576-24.576 13.312 0 24.576 10.752 24.576 24.576v51.2c0 13.312-10.752 24.576-24.576 24.576z" fill="#333333" p-id="9113"></path><path d="M212.48 752.64c-13.312 0-24.576-10.752-24.576-24.576v-51.2c0-13.312 10.752-24.576 24.576-24.576s24.576 10.752 24.576 24.576v51.2c0 13.312-11.264 24.576-24.576 24.576zM811.52 881.152c-13.312 0-24.576-10.752-24.576-24.576v-51.2c0-13.312 10.752-24.576 24.576-24.576 13.312 0 24.576 10.752 24.576 24.576v51.2c0 13.312-10.752 24.576-24.576 24.576zM212.48 881.152c-13.312 0-24.576-10.752-24.576-24.576v-51.2c0-13.312 10.752-24.576 24.576-24.576s24.576 10.752 24.576 24.576v51.2c0 13.312-11.264 24.576-24.576 24.576z" fill="#333333" p-id="9114"></path></svg>
-            NJUST </p>
-        <!--        <br>-->
-        <p> <svg t="1712151270020" class="icon" viewBox="-20 -100 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6679" width="16" height="16"><path d="M459.3664 526.7456c24.9856-25.8048 40.3456-60.928 40.3456-99.5328 0-79.0528-64.3072-143.36-143.36-143.36s-143.36 64.3072-143.36 143.36c0 38.6048 15.36 73.728 40.3456 99.5328-61.2352 35.6352-102.4 101.888-102.4 177.664 0 19.7632 16.0768 35.84 35.84 35.84s35.84-16.0768 35.84-35.84c0-73.728 60.0064-133.7344 133.7344-133.7344s133.7344 60.0064 133.7344 133.7344c0 19.7632 16.0768 35.84 35.84 35.84s35.84-16.0768 35.84-35.84c0.1024-75.776-41.1648-142.1312-102.4-177.664zM356.352 355.4304c39.5264 0 71.68 32.1536 71.68 71.68s-32.1536 71.68-71.68 71.68-71.68-32.1536-71.68-71.68 32.1536-71.68 71.68-71.68zM837.2224 740.2496H618.1888c-19.7632 0-35.84-16.0768-35.84-35.84s16.0768-35.84 35.84-35.84h219.0336c19.7632 0 35.84 16.0768 35.84 35.84s-15.9744 35.84-35.84 35.84zM837.2224 489.2672H687.0016c-19.7632 0-35.84-16.0768-35.84-35.84s16.0768-35.84 35.84-35.84h150.2208c19.7632 0 35.84 16.0768 35.84 35.84s-15.9744 35.84-35.84 35.84zM837.2224 614.7072H687.0016c-19.7632 0-35.84-16.0768-35.84-35.84s16.0768-35.84 35.84-35.84h150.2208c19.7632 0 35.84 16.0768 35.84 35.84s-15.9744 35.84-35.84 35.84z" fill="" p-id="6680"></path><path d="M930.816 835.2768H93.184c-19.7632 0-35.84-16.0768-35.84-35.84V224.5632c0-19.7632 16.0768-35.84 35.84-35.84h837.632c19.7632 0 35.84 16.0768 35.84 35.84v574.8736c0 19.7632-16.0768 35.84-35.84 35.84z m-801.792-71.68h765.952V260.4032H129.024v503.1936z" fill="" p-id="6681"></path></svg>
-            Associate Professor</p>
-        <p>         <svg t="1750862417589" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5027" width="16" height="16"><path d="M935.7 403.9c-0.4-1.1-0.8-2.2-1.3-3.2-2-4.3-4.6-8.4-8-11.8-0.5-0.5-1-0.8-1.5-1.2-2-1.9-4-3.7-6.3-5.2l-384-240c-13.9-8.6-31.4-8.6-45.2 0l-384 240c-12.5 7.8-20.1 21.5-20.1 36.2 0 14.7 7.6 28.4 20.1 36.2L223.9 529c-0.7 3-1.8 5.8-1.8 9v145.5c0 14.7 7.6 28.4 20 36.2l247.2 154.5c6.9 4.3 14.8 6.5 22.6 6.5 7.8 0 15.7-2.2 22.6-6.5l247.2-154.5c12.5-7.8 20-21.5 20-36.2V537.9c0-3.2-1.1-6-1.8-9l53.2-33.3v221.7c0 23.6 19.1 42.7 42.7 42.7s42.7-19.1 42.7-42.7V418.7c0.2-5.2-1.1-10.1-2.8-14.8zM716.6 659.7L512 787.6 307.4 659.8v-78.7l182 113.7c6.9 4.3 14.8 6.5 22.6 6.5 7.8 0 15.7-2.2 22.6-6.5l182-113.7v78.6zM512 608.3L208.5 418.7 512 229l303.5 189.7L512 608.3z" p-id="5028"></path><path d="M896 845.3m-42.7 0a42.7 42.7 0 1 0 85.4 0 42.7 42.7 0 1 0-85.4 0Z" p-id="5029"></path></svg>
-            Master's Supervisor</p>
-        <p><svg t="1712149934589" class="icon" viewBox="-20 -100 1092 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1574" width="16" height="16"><path d="M942.35648 607.573333L614.67648 300.373333c-34.133333-34.133333-88.746667-34.133333-129.706667 0-13.653333 6.826667-20.48 13.653333-34.133333 27.306667-102.4 88.746667-197.973333 184.32-300.373333 273.066667-6.826667 6.826667-13.653333 13.653333-13.653334 20.48v286.72c0 20.48 13.653333 34.133333 27.306667 40.96 13.653333 6.826667 27.306667 6.826667 40.96 6.826666h204.8v-20.48-150.186666c0-27.306667 13.653333-34.133333 34.133333-34.133334h197.973334c27.306667 0 34.133333 6.826667 34.133333 34.133334V955.733333H887.743147c34.133333 0 61.44-27.306667 61.44-61.44V628.053333c0-6.826667 0-13.653333-6.826667-20.48z" p-id="1575"></path><path d="M1065.23648 457.386667l-6.826667-6.826667-157.013333-157.013333C812.649813 204.8 723.903147 122.88 628.329813 34.133333 607.849813 6.826667 580.543147 0 532.75648 0c-20.48 0-47.786667 13.653333-75.093333 40.96-102.4 95.573333-204.8 191.146667-314.026667 293.546667C102.67648 368.64 61.71648 409.6 20.75648 450.56c-20.48 20.48-27.306667 47.786667-13.653333 68.266667s27.306667 40.96 61.44 40.96c20.48 0 40.96-6.826667 61.44-27.306667 95.573333-95.573333 197.973333-184.32 293.546666-279.893333 20.48-20.48 40.96-40.96 68.266667-61.44 40.96-34.133333 75.093333-34.133333 116.053333 0 6.826667 13.653333 13.653333 20.48 27.306667 34.133333 75.093333 75.093333 150.186667 143.36 225.28 218.453333 40.96 34.133333 75.093333 75.093333 116.053333 109.226667 27.306667 27.306667 75.093333 27.306667 102.4 0 20.48-34.133333 13.653333-68.266667-13.653333-95.573333z" p-id="1576"></path></svg>
-        <a href=""> Office: CST 2079</a></p>
-
-        <br>
-        <p><span class="icon iconfont">&#xe60b;</span> <a href=""> NanJing</a></p>
-        <p><span class="icon iconfont">&#xe74f;</span> <a href="mailto:zengyue@njust.edu.cn"> Email</a></p>
-        <p><span class="icon iconfont">&#xecb5;</span> <a href="https://scholar.google.com/citations?user=Y1uyAm8AAAAJ&hl=zh-CN"> Google Scholar</a> </p>
-        <p><span class="icon iconfont">&#xe8c6;</span> <a href="https://github.com/zy-njust"> Github</a></p>
-        <p><span class="icon iconfont">&#xe619;</span> <a href="https://orcid.org/0000-0002-5553-5534"> ORCID</a></p>
-        <p><span class="icon iconfont">&#xeb74;</span> <a href="https://dblp.uni-trier.de/pid/79/4615-2.html"> DBLP</a></p>
-        <p><span class="icon iconfont">&#xec7e;</span> <a href="https://www.researchgate.net/profile/Zeng-Yue"> ResearchGate</a></p>
-
+    <div class="image-item">
+      <img src="img/NJUST-LOG.jpg" alt="南京理工大学" width="180" height="40">
     </div>
-
-    <header>
-  <div class="navbar">
-    <div class="hover-underline">
-    <a href="#Home">Home</a>
-    <a href="#ResearchInterests">Research Interests</a>
-    <a href="#News">News</a>
-    <a href="#Experiences">Experiences</a>
-    <a href="#Publications">Publications</a>
-    <a href="#AcademicServices">Academic Services</a>
-    <a href="#TeamMembers">TeamMembers</a>
-    <a href="#InvitedTalks">Invited Talks</a>
-    </div>
-      <div class="image-container">
-        <div class="image-item">
-            <img src="img/CSE.jpg" alt="计算机科学与工程学院", width="36", height="40">
-        </div>
-        <div class="image-item">
-            <img src="img/NJUST-LOG.jpg" alt="南京理工大学", width="180", height="40">
-        </div>
-    </div>
-<!--  </div>-->
-<!--       <div class="log">-->
-<!--    <img src="img/NJUST-LOG.jpg" alt="Nanjing University", width="180", height="40"> <img src="img/CSE.png" alt="Nanjing University", width="40", height="40">-->
-<!--  </div>-->
-<!--       <div class="department">-->
-<!--    <img src="img/CSE.png" alt="Nanjing University", width="40", height="40">-->
   </div>
-     <hr>
   </header>
 
-    <!-- 右侧栏 -->
-    <div class="right-column">
+  <aside class="sidebar">
+  <div class="elliptical-image">
+    <img src="img/my.jpg" alt="椭圆形图片">
+  </div>
+    <div class="profile-info">
+      <h3>曾悦<br>
+          Zeng Yue<br>
+<!--          NJUST<br>-->
+          Associate Professor<br>
+<!--          Master's Supervisor<br>-->
+      </h3>
 
 
-    <div id = "Home"></div>
+    </div>
+    <div class="profile-links">
+    <p><i class="fas fa-map-marker-alt"></i> <a href="">NanJing</a></p>
+    <p><i class="fas fa-building" aria-hidden="true" title="Office"></i> <a href="">Office: CST 2079</a></p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:zengyue@njust.edu.cn">Email</a></p>
+    <p><i class="fab fa-google"></i> <a href="https://scholar.google.com/citations?user=Y1uyAm8AAAAJ&hl=zh-CN">Google Scholar</a></p>
+    <p><i class="fab fa-github"></i> <a href="https://github.com/zy-njust">Github</a></p>
+    <p><i class="fab fa-orcid"></i> <a href="https://orcid.org/0000-0002-5553-5534">ORCID</a></p>
+    <p><i class="fas fa-database"></i> <a href="https://dblp.uni-trier.de/pid/79/4615-2.html">DBLP</a></p>
+    <p><i class="fas fa-flask"></i> <a href="https://www.researchgate.net/profile/Zeng-Yue">ResearchGate</a></p>
+  </div>
+  </aside>
+
+  <main class="content">
+        <div id = "Home"></div>
       <tr>
         <th align="left" width="70%">
-            <p> I'm currently an associate professor in the Department of Computer Science and Engineering, Nanjing University of Science and Technology, led by <a href="http://202.119.85.163/open/TutorInfo.aspx?dsbh=HpJaYd0LkqMrdIfLVIZxvQ==&yxsh=4iVdgPyuKTE=&zydm=QP9JvMVDx3k=">Prof. Gongxuan Zhang</a> and <a href="https://www.junlongzhou.team/">Prof. Junlong Zhou</a>. I received my Ph.D. degree in the Department of Computer Science and Technology, Nanjing University, supervised by <a href="https://dislab.nju.edu.cn/people/">Prof. Baoliu Ye</a>. I'm also a Research Assistant in the Computer Department of the Hong Kong Polytechnic University, supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=Ib-sizwAAAAJ">Prof. Song Guo</a>, IEEE Fellow. I received my  B.S. degree from Southwest University, supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=gmoWPXgAAAAJ">Prof. Songtao Guo</a>.</p>
+            <p> I'm currently an associate professor in the Department of Computer Science and Engineering, <b>Nanjing University of Science and Technology</b>, led by <a href="http://202.119.85.163/open/TutorInfo.aspx?dsbh=HpJaYd0LkqMrdIfLVIZxvQ==&yxsh=4iVdgPyuKTE=&zydm=QP9JvMVDx3k=">Prof. Gongxuan Zhang</a> and <a href="https://www.junlongzhou.team/">Prof. Junlong Zhou</a>. I received my Ph.D. degree in the Department of Computer Science and Technology, Nanjing University, supervised by <a href="https://dislab.nju.edu.cn/people/">Prof. Baoliu Ye</a>. I'm also a Research Assistant in the Computer Department of the Hong Kong Polytechnic University, supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=Ib-sizwAAAAJ">Prof. Song Guo</a>, IEEE Fellow. I received my  B.S. degree from Southwest University, supervised by <a href="https://scholar.google.com/citations?hl=zh-CN&user=gmoWPXgAAAAJ">Prof. Songtao Guo</a>.</p>
             <p class="custom-paragraph"> Yue Zeng received the Ph.D degree from Nanjing University. He is currently an associate professor in Nanjing University of Science and Technology. He has published more than a dozen papers in top journals and conferences, including IEEE Transactions on Computers, IEEE Transactions on Mobile Computing, IEEE Transactions on Services Computing, IEEE Transactions on Communications, IEEE Transactions on Cloud Computing and IEEE CVPR. His research interests include edge intelligence, deep reinforcement learning, machine learning training and inference, federated learning, and serverless computing. </p>
-            <p class="custom-paragraph"> 曾悦，博士，现为南京理工大学计算机科学与工程学院副教授，硕士生导师。博士毕业于南京大学。目前担任中国计算机学会（CCF）分布式计算与系统专业委员会执行委员，CCF嵌入式系统专业委员会执行委员，江苏省计算机学会系统结构专业委员会委员。近年来一直从事边缘智能、联邦学习、大模型训练和推理的研究工作，并作为项目负责人承担了国家自然科学基金、江苏省自然科学基金等项目。截至目前，在 IEEE TC、IEEE TSC、IEEE TCOM、IEEE TMC、CVPR等国际重要期刊和重要会议发表论文二十余篇。 </p>
+            <p class="custom-paragraph"> 曾悦，博士，现为<b>南京理工大学</b>计算机科学与工程学院副教授，硕士生导师。博士毕业于南京大学。目前担任中国计算机学会（CCF）分布式计算与系统专业委员会执行委员，CCF嵌入式系统专业委员会执行委员，江苏省计算机学会系统结构专业委员会委员。近年来一直从事边缘智能、联邦学习、大模型训练和推理的研究工作，并作为项目负责人承担了国家自然科学基金、江苏省自然科学基金等项目。截至目前，在 IEEE TC、IEEE TSC、IEEE TCOM、IEEE TMC、CVPR等国际重要期刊和重要会议发表论文二十余篇。 </p>
     <div id="ResearchInterests">
     <h2><span>
         <svg t="1690029137581" class="icon" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2475" width="20" height="20"><path d="M5.1 831.1h253.5c2.8 0 5.1-2.3 5.1-5.1s-2.3-5.1-5.1-5.1H5.1c-2.8 0-5.1 2.3-5.1 5.1 0 2.9 2.3 5.1 5.1 5.1z m314.3 0h55.8c2.8 0 5.1-2.3 5.1-5.1s-2.3-5.1-5.1-5.1h-55.8c-2.8 0-5.1 2.3-5.1 5.1 0.1 2.9 2.3 5.1 5.1 5.1z m106.5 0h253.5c2.8 0 5.1-2.3 5.1-5.1s-2.3-5.1-5.1-5.1H425.9c-2.8 0-5.1 2.3-5.1 5.1 0 2.9 2.3 5.1 5.1 5.1z m314.4 0H796c2.8 0 5.1-2.3 5.1-5.1s-2.3-5.1-5.1-5.1h-55.8c-2.8 0-5.1 2.3-5.1 5.1 0.1 2.9 2.4 5.1 5.2 5.1z m106.4 0h172.4c2.8 0 5.1-2.3 5.1-5.1s-2.3-5.1-5.1-5.1H846.7c-2.8 0-5.1 2.3-5.1 5.1 0.1 2.9 2.3 5.1 5.1 5.1z" fill="#3B0404" p-id="2476"></path><path d="M409.6 803.5H86.9c-14 0-25.4-11.4-25.4-25.4 0-14 11.4-25.4 25.4-25.4h118.2c-10.1-3.4-17.3-12.9-17.3-24 0-10.9 6.8-20.1 16.4-23.7h-73.9c-14 0-25.4-11.4-25.4-25.4 0-14 11.4-25.4 25.4-25.4h130.1l-40.8-40.8-1.8-1.8c-88.1-88.1-88.1-231 0-319.1s231-88.1 319.1 0l1.8 1.8 1.8-1.8c88.1-88.1 231-88.1 319.1 0 88.1 88.1 88.1 231 0 319.1l-1.8 1.8L560.2 911c-11.9 11.9-31.1 11.9-43 0L409.6 803.5zM54.5 753.1c-14 0-25.4-11.4-25.4-25.4 0-14 11.4-25.4 25.4-25.4s25.4 11.4 25.4 25.4c0 14.1-11.4 25.4-25.4 25.4z" fill="#FF5E5E" p-id="2477"></path><path d="M668.1 228.8c67.9-9.7 139.3 11.6 191.5 63.8 88.1 88.1 88.1 231 0 319.1l-1.8 1.8L560.2 911c-11.9 11.9-31.1 11.9-43 0l-5.1-5.1 291.3-291.4 1.8-1.8c88.1-88.1 88.1-231 0-319.1-38.3-38.2-87-59.9-137.1-64.8z" fill="#CB2828" p-id="2478"></path><path d="M196 633.3c2 2 2 5.2 0 7.2s-5.2 2-7.2 0L165.3 617l-1-1-0.3-0.3-0.5-0.5c-54.3-54.3-77.4-130.8-63.8-204.9 0.5-2.8 3.1-4.6 5.9-4.1 2.8 0.5 4.6 3.1 4.1 5.9-13 70.9 9.1 144 61 195.9l0.5 0.5 0.3 0.3 1.1 1.1 23.4 23.4z m-85.3-226c-0.6 2.7-3.2 4.5-6 3.9-2.7-0.6-4.5-3.2-3.9-6 0.3-1.7 0.7-3.4 1.1-5.1 0.6-2.7 3.3-4.4 6.1-3.8 2.7 0.6 4.4 3.3 3.8 6.1-0.4 1.6-0.7 3.3-1.1 4.9z m17.4-51.2c-1.2 2.5-4.3 3.6-6.8 2.4s-3.6-4.3-2.4-6.8c11.1-23 26-44 44.5-62.5 44.3-44.3 103.3-68.1 164.6-67.7 2.8 0 5.1 2.3 5 5.1 0 2.8-2.3 5.1-5.1 5-58.6-0.3-115 22.4-157.4 64.7-17.5 17.7-31.8 37.8-42.4 59.8zM333 231.7c-2.8-0.1-5-2.4-4.9-5.2 0.1-2.8 2.4-5 5.2-4.9 1.7 0 3.5 0.1 5.2 0.2 2.8 0.1 4.9 2.5 4.8 5.3-0.1 2.8-2.5 4.9-5.3 4.8-1.7-0.1-3.4-0.2-5-0.2z m272.4-6c2.7-0.5 5.4 1.3 5.9 4s-1.3 5.4-4 5.9c-42.8 8.3-82.3 29-113.9 60.6l-0.4 0.4-1.5 1.5c-2 2-5.2 2-7.2-0.1-0.6-0.6-1.2-1.2-1.7-1.8-26.9-26.9-59.7-46-95.5-56.2-2.7-0.8-4.3-3.6-3.5-6.3 0.8-2.7 3.6-4.3 6.3-3.5 36.7 10.4 70.3 29.8 98.2 57 32.6-31.9 73.2-53 117.3-61.5z m6.6 9c-2.8 0.5-5.4-1.4-5.9-4.1-0.5-2.8 1.4-5.4 4.1-5.9 1.7-0.3 3.4-0.6 5.1-0.8 2.8-0.4 5.3 1.5 5.8 4.3 0.4 2.8-1.5 5.3-4.3 5.8-1.5 0.2-3.2 0.5-4.8 0.7z m54.6-2.5c-2.8-0.2-4.9-2.7-4.7-5.4 0.2-2.8 2.7-4.9 5.4-4.7 54.4 4.2 105.7 27.5 145.1 66.9 23.1 23.1 40.7 50.3 52.2 80.2 1 2.6-0.3 5.5-2.9 6.6-2.6 1-5.5-0.3-6.6-2.9-11-28.5-27.8-54.6-49.9-76.7-37.6-37.7-86.6-59.9-138.6-64zM857 377.5c-0.9-2.6 0.4-5.5 3.1-6.5 2.6-0.9 5.5 0.4 6.5 3.1 0.6 1.6 1.1 3.3 1.7 4.9 0.9 2.7-0.6 5.5-3.2 6.4-2.7 0.9-5.5-0.6-6.4-3.2-0.6-1.6-1.2-3.1-1.7-4.7z m11.9 53.1c-0.3-2.8 1.8-5.3 4.6-5.5 2.8-0.3 5.3 1.8 5.5 4.6 6.7 68.3-17 136.2-66.5 185.7l-1.8 1.8-36.8 36.8c-2 2-5.2 2-7.2 0s-2-5.2 0-7.2l36.8-36.8c0.6-0.6 1.2-1.2 1.8-1.7 47.3-47.5 69.9-112.5 63.6-177.7zM763.1 650.2c2-2 5.2-2 7.2 0s2 5.2 0 7.2l-3.6 3.6c-2 2-5.2 2-7.2 0s-2-5.2 0-7.2l3.6-3.6z m-39.4 39.5c2-2 5.2-2 7.2 0s2 5.2 0 7.2L551.6 876.1c-2 2-5.2 2-7.2 0s-2-5.2 0-7.2l179.3-179.2zM540.9 872.5c2-2 5.2-2 7.2 0s2 5.2 0 7.2l-3.6 3.6c-2 2-5.2 2-7.2 0s-2-5.2 0-7.2l3.6-3.6z m-39.1 38.3c-9.8 6.4-22.9 5.2-31.4-3.1L367.8 805.1c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2L463.3 915c12 11.6 30.3 13.3 44.1 4.4 2.3-1.5 3-4.7 1.5-7-1.6-2.4-4.7-3.1-7.1-1.6z" fill="#3B0404" p-id="2479"></path><path d="M494.3 514.2c-8.4 0-15.2-6.8-15.2-15.2s6.8-15.2 15.2-15.2c8.4 0 15.2 6.8 15.2 15.2s-6.8 15.2-15.2 15.2z m91.3 0c-8.4 0-15.2-6.8-15.2-15.2s6.8-15.2 15.2-15.2 15.2 6.8 15.2 15.2-6.8 15.2-15.2 15.2zM465.1 583.3c18.7 22.9 46.6 36.5 76.7 36.5 29.2 0 56.3-12.7 74.9-34.4 1.8-2.1 1.6-5.3-0.5-7.2-2.1-1.8-5.3-1.6-7.2 0.5-16.8 19.5-41.1 30.9-67.3 30.9-27 0-52.1-12.2-68.8-32.7-1.8-2.2-5-2.5-7.1-0.7s-2.5 5-0.7 7.1z" fill="#3B0404" p-id="2480"></path><path d="M428.4 559.9c-8.4 0-15.2-6.8-15.2-15.2 0-8.4 6.8-15.2 15.2-15.2 8.4 0 15.2 6.8 15.2 15.2 0 8.4-6.8 15.2-15.2 15.2z m223.1 0c-8.4 0-15.2-6.8-15.2-15.2 0-8.4 6.8-15.2 15.2-15.2s15.2 6.8 15.2 15.2c0 8.4-6.8 15.2-15.2 15.2z" fill="#CB2828" p-id="2481"></path><path d="M332.1 483.8c-30.8 0-55.8-25-55.8-55.8s25-55.8 55.8-55.8 55.8 25 55.8 55.8-25 55.8-55.8 55.8z m415.8 0c-30.8 0-55.8-25-55.8-55.8s25-55.8 55.8-55.8 55.8 25 55.8 55.8-25 55.8-55.8 55.8z" fill="#F54040" p-id="2482"></path><path d="M871.4 125.7v-0.3c0-14.9 12.1-26.9 26.9-26.9s26.9 12.1 26.9 26.9V160.6c0 10.5-8.5 19-19 19H871c-14.9 0-26.9-12.1-26.9-26.9s12.1-26.9 26.9-26.9c0.2-0.1 0.3-0.1 0.4-0.1z" fill="#FF5E5E" p-id="2483"></path></svg>
@@ -255,25 +451,29 @@
         Experience</span></h2>
         <ul>
             <div style="display: flex;" class="custom-paragraph">
-              <div style="flex: 0.8;"><span class="icon iconfont">&#xeb73;</span> 2024.04 - now</div>
+              <div style="flex: 0.8;"><svg t="1755227658369" class="icon" viewBox="0 -120 1198 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="16" height="16"><path d="M1198.2592 373.8624c0.06656-49.77664-33.00352-95.3856-85.61664-118.09792l-440.87296-192.45568c-45.59872-19.87072-99.8144-19.87072-145.40288 0L85.18656 255.76448C7.71072 289.69472-22.4256 370.0736 17.87904 435.3024c14.99136 24.25856 38.49216 44.04224 67.30752 56.65792l91.71968 40.00256v292.16768c-0.01536 16.78336 13.05088 31.60576 32.1536 36.44928l327.70048 142.94528c39.10144 17.05472 85.60128 17.05472 124.69248 0l327.62368-142.94528c19.13344-4.81792 32.24064-19.64032 32.2304-36.44928v-292.16768l86.58944-38.03136v167.15264c0 21.01248 20.23424 38.0416 45.17888 38.0416 24.95488 0 45.184-17.02912 45.184-38.0416V373.8624z m-267.3152 426.43456l-311.05536 135.72096c-13.04064 5.6832-28.53376 5.6832-41.56928 0l-311.06048-135.72096v-228.91008l259.10272 113.09568c45.5936 19.87584 99.80416 19.87584 145.40288 0l259.1744-113.09568v228.91008zM1071.37536 424.448l-441.17504 192.45568c-19.52768 8.4992-42.74176 8.4992-62.26944 0L126.75072 424.448C93.48096 410.0096 80.41472 375.6032 97.55648 347.5968c6.45632-10.55232 16.66048-19.13856 29.19424-24.57088l441.18016-192.2048c19.52768-8.4992 42.74176-8.4992 62.26944 0l441.17504 192.45568c33.27488 14.4384 46.34624 48.8448 29.18912 76.8512-6.45632 10.55232-16.66048 19.13856-29.18912 24.576v-0.256z" fill="#666666" p-id="1654"></path></svg>
+                  2024.04 - now</div>
               <div style="flex: 1.4;"><a href="https://www.njust.edu.cn/">Nanjing University of Science and Technology</a></div>
               <div style="flex: 0.5;"> </div>
               <div style="flex: 1.5;"> Associate Professor </div>
             </div>
             <div style="display: flex;" class="custom-paragraph">
-              <div style="flex: 0.8;"><span class="icon iconfont">&#xeb73;</span> 2019.09 - 2023.12</div>
+              <div style="flex: 0.8;"><svg t="1755227658369" class="icon" viewBox="0 -120 1198 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="16" height="16"><path d="M1198.2592 373.8624c0.06656-49.77664-33.00352-95.3856-85.61664-118.09792l-440.87296-192.45568c-45.59872-19.87072-99.8144-19.87072-145.40288 0L85.18656 255.76448C7.71072 289.69472-22.4256 370.0736 17.87904 435.3024c14.99136 24.25856 38.49216 44.04224 67.30752 56.65792l91.71968 40.00256v292.16768c-0.01536 16.78336 13.05088 31.60576 32.1536 36.44928l327.70048 142.94528c39.10144 17.05472 85.60128 17.05472 124.69248 0l327.62368-142.94528c19.13344-4.81792 32.24064-19.64032 32.2304-36.44928v-292.16768l86.58944-38.03136v167.15264c0 21.01248 20.23424 38.0416 45.17888 38.0416 24.95488 0 45.184-17.02912 45.184-38.0416V373.8624z m-267.3152 426.43456l-311.05536 135.72096c-13.04064 5.6832-28.53376 5.6832-41.56928 0l-311.06048-135.72096v-228.91008l259.10272 113.09568c45.5936 19.87584 99.80416 19.87584 145.40288 0l259.1744-113.09568v228.91008zM1071.37536 424.448l-441.17504 192.45568c-19.52768 8.4992-42.74176 8.4992-62.26944 0L126.75072 424.448C93.48096 410.0096 80.41472 375.6032 97.55648 347.5968c6.45632-10.55232 16.66048-19.13856 29.19424-24.57088l441.18016-192.2048c19.52768-8.4992 42.74176-8.4992 62.26944 0l441.17504 192.45568c33.27488 14.4384 46.34624 48.8448 29.18912 76.8512-6.45632 10.55232-16.66048 19.13856-29.18912 24.576v-0.256z" fill="#666666" p-id="1654"></path></svg>
+                  2019.09 - 2023.12</div>
               <div style="flex: 1.4;"><a href="https://www.nju.edu.cn/main.htm">Nanjing University</a></div>
               <div style="flex: 0.5;"><a href="https://dislab.nju.edu.cn/people/">DISLAB</a> </div>
               <div style="flex: 1.5;"> Ph. D. </div>
             </div>
             <div style="display: flex;" class="custom-paragraph">
-              <div style="flex: 0.8;"><span class="icon iconfont">&#xeb73;</span> 2022.06 - 2023.08</div>
+                            <div style="flex: 0.8;"><svg t="1755227658369" class="icon" viewBox="0 -120 1198 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="16" height="16"><path d="M1198.2592 373.8624c0.06656-49.77664-33.00352-95.3856-85.61664-118.09792l-440.87296-192.45568c-45.59872-19.87072-99.8144-19.87072-145.40288 0L85.18656 255.76448C7.71072 289.69472-22.4256 370.0736 17.87904 435.3024c14.99136 24.25856 38.49216 44.04224 67.30752 56.65792l91.71968 40.00256v292.16768c-0.01536 16.78336 13.05088 31.60576 32.1536 36.44928l327.70048 142.94528c39.10144 17.05472 85.60128 17.05472 124.69248 0l327.62368-142.94528c19.13344-4.81792 32.24064-19.64032 32.2304-36.44928v-292.16768l86.58944-38.03136v167.15264c0 21.01248 20.23424 38.0416 45.17888 38.0416 24.95488 0 45.184-17.02912 45.184-38.0416V373.8624z m-267.3152 426.43456l-311.05536 135.72096c-13.04064 5.6832-28.53376 5.6832-41.56928 0l-311.06048-135.72096v-228.91008l259.10272 113.09568c45.5936 19.87584 99.80416 19.87584 145.40288 0l259.1744-113.09568v228.91008zM1071.37536 424.448l-441.17504 192.45568c-19.52768 8.4992-42.74176 8.4992-62.26944 0L126.75072 424.448C93.48096 410.0096 80.41472 375.6032 97.55648 347.5968c6.45632-10.55232 16.66048-19.13856 29.19424-24.57088l441.18016-192.2048c19.52768-8.4992 42.74176-8.4992 62.26944 0l441.17504 192.45568c33.27488 14.4384 46.34624 48.8448 29.18912 76.8512-6.45632 10.55232-16.66048 19.13856-29.18912 24.576v-0.256z" fill="#666666" p-id="1654"></path></svg>
+                  2022.06 - 2023.08</div>
               <div style="flex: 1.4;"><a href="https://peilab.netlify.app/">Hong Kong Polytechnic University</a></div>
               <div style="flex: 0.5;"><a href="http://peilab.comp.polyu.edu.hk/people/">EILab</a> </div>
               <div style="flex: 1.5;"> Research Assistant </div>
             </div>
             <div style="display: flex;" class="custom-paragraph">
-              <div style="flex: 0.8;"><span class="icon iconfont">&#xeb73;</span> 2016.09 - 2019.07</div>
+                            <div style="flex: 0.8;"><svg t="1755227658369" class="icon" viewBox="0 -120 1198 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1653" width="16" height="16"><path d="M1198.2592 373.8624c0.06656-49.77664-33.00352-95.3856-85.61664-118.09792l-440.87296-192.45568c-45.59872-19.87072-99.8144-19.87072-145.40288 0L85.18656 255.76448C7.71072 289.69472-22.4256 370.0736 17.87904 435.3024c14.99136 24.25856 38.49216 44.04224 67.30752 56.65792l91.71968 40.00256v292.16768c-0.01536 16.78336 13.05088 31.60576 32.1536 36.44928l327.70048 142.94528c39.10144 17.05472 85.60128 17.05472 124.69248 0l327.62368-142.94528c19.13344-4.81792 32.24064-19.64032 32.2304-36.44928v-292.16768l86.58944-38.03136v167.15264c0 21.01248 20.23424 38.0416 45.17888 38.0416 24.95488 0 45.184-17.02912 45.184-38.0416V373.8624z m-267.3152 426.43456l-311.05536 135.72096c-13.04064 5.6832-28.53376 5.6832-41.56928 0l-311.06048-135.72096v-228.91008l259.10272 113.09568c45.5936 19.87584 99.80416 19.87584 145.40288 0l259.1744-113.09568v228.91008zM1071.37536 424.448l-441.17504 192.45568c-19.52768 8.4992-42.74176 8.4992-62.26944 0L126.75072 424.448C93.48096 410.0096 80.41472 375.6032 97.55648 347.5968c6.45632-10.55232 16.66048-19.13856 29.19424-24.57088l441.18016-192.2048c19.52768-8.4992 42.74176-8.4992 62.26944 0l441.17504 192.45568c33.27488 14.4384 46.34624 48.8448 29.18912 76.8512-6.45632 10.55232-16.66048 19.13856-29.18912 24.576v-0.256z" fill="#666666" p-id="1654"></path></svg>
+                  2016.09 - 2019.07</div>
               <div style="flex: 1.4;"><a href="http://www.swu.edu.cn/">Southwest University</a></div>
               <div style="flex: 0.5;"></div>
               <div style="flex: 1.5;"> Master </div>
@@ -394,11 +594,9 @@
                <svg t="1716177670366" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6994" width="20" height="20"><path d="M743.226 454.192v11.59a132.144 132.144 0 0 0 6.78 41.782l26.252 78.756h49.548v-181.678h-33.032c-27.364 0.002-49.548 22.184-49.548 49.55z" fill="#5A4146" p-id="6995"></path><path d="M969.368 488.502l-27.948 97.82-132.13-115.612c-18.244 0-33.032-14.79-33.032-33.032 0-27.364 22.184-49.548 49.548-49.548h115.612c18.244 0 33.032 14.79 33.032 33.032v31.044a132.084 132.084 0 0 1-5.082 36.296z" fill="#694B4B" p-id="6996"></path><path d="M809.28 635.88h99.096v73.098H809.28z" fill="#E6AF78" p-id="6997"></path><path d="M809.29 666.208c15.318 6.224 32.022 9.728 49.548 9.728s34.23-3.504 49.548-9.728v-30.338h-99.096v30.338z" fill="#D29B6E" p-id="6998"></path><path d="M988.062 698.702l-79.68-22.764-49.544 32.878-49.548-32.88-79.676 22.766a49.548 49.548 0 0 0-35.936 47.642v120.752a16.516 16.516 0 0 0 16.516 16.516h297.29a16.516 16.516 0 0 0 16.516-16.516v-120.752a49.548 49.548 0 0 0-35.938-47.642z" fill="#D5DCED" p-id="6999"></path><path d="M875.354 883.61h-33.032l8.258-174.642h16.516z" fill="#AFB9D2" p-id="7000"></path><path d="M858.838 652.386c-54.73 0-99.096-44.368-99.096-99.096v-19.35c0-8.76 3.48-17.162 9.674-23.358l29.95-29.95c6.342-6.342 15.014-9.988 23.978-9.706 52.796 1.666 99.528 12.976 125.074 37.926 6.254 6.108 9.518 14.652 9.518 23.392v21.046c0 54.73-44.368 99.096-99.098 99.096z" fill="#F0C087" p-id="7001"></path><path d="M809.29 538.036c0-19.052 16-34.196 35.014-32.984 33.342 2.128 82.818 7.7 113.172 22.3-0.99-6.968-3.984-13.546-9.058-18.502-25.546-24.95-72.278-36.26-125.074-37.926l-0.002 0.002v-0.002c-8.962-0.282-17.636 3.366-23.976 9.706l-29.948 29.948a33.026 33.026 0 0 0-9.676 23.358v19.35c0 45.192 30.282 83.242 71.64 95.158-13.766-16.984-22.09-38.544-22.09-62.126l-0.002-48.282z" fill="#E6AF78" p-id="7002"></path><path d="M957.936 795.558c0-13.142 5.22-25.744 14.512-35.036l42.514-42.514c5.682 8.122 9.038 17.9 9.038 28.338v120.752a16.516 16.516 0 0 1-16.516 16.516h-49.548v-88.056z" fill="#C7CFE2" p-id="7003"></path><path d="M867.096 742h-16.516a8.26 8.26 0 0 1-8.258-8.258v-24.774h33.032v24.774a8.258 8.258 0 0 1-8.258 8.258z" fill="#959CB5" p-id="7004"></path><path d="M858.838 708.818L830.844 730.2a9.91 9.91 0 0 1-14.708-3.116l-25.112-45.86 10.108-15.418a6.606 6.606 0 0 1 10.018-1.222l47.688 44.234zM858.838 708.818l27.994 21.384a9.91 9.91 0 0 0 14.708-3.116l25.112-45.86-10.108-15.418a6.606 6.606 0 0 0-10.018-1.222l-47.688 44.232z" fill="#C7CFE2" p-id="7005"></path><path d="M295.644 645.49c-14.114-37.396-25.308-101.682-27.726-135.152-4.6-63.692-52.598-115.612-117.482-115.612s-112.882 51.922-117.482 115.612c-2.418 33.468-13.612 97.756-27.726 135.152-3.11 8.244 0.48 17.334 8.598 21.014 15.124 6.854 47.37 20.282 86.26 25.512h100.698c38.708-5.242 71.18-18.678 86.26-25.512 8.12-3.68 11.71-12.77 8.6-21.014z" fill="#5A4146" p-id="7006"></path><path d="M287.046 666.506c8.116-3.68 11.708-12.77 8.596-21.014-14.112-37.396-25.308-101.682-27.724-135.152-4.598-63.692-52.598-115.612-117.48-115.612l-0.49 0.002c-49.786 0.202-67.38 68.1-24.522 93.434 2.574 1.522 4.224 2.254 4.224 2.254l37.538 201.6h33.598c38.708-5.246 71.18-18.68 86.26-25.512z" fill="#694B4B" p-id="7007"></path><path d="M269.9 725.176l-53.448-26.722a33.032 33.032 0 0 1-18.26-29.548l0.004-49.55h-99.1v49.552a33.03 33.03 0 0 1-18.26 29.544l-53.448 26.724A49.542 49.542 0 0 0 0 769.49v97.604a16.516 16.516 0 0 0 16.516 16.516h264.258a16.516 16.516 0 0 0 16.516-16.516v-97.602a49.546 49.546 0 0 0-27.39-44.316z" fill="#E6AF78" p-id="7008"></path><path d="M148.646 685.418c17.784 0 34.818-3.666 50.434-10.192-0.41-2.082-0.888-4.152-0.888-6.322l0.004-49.55h-99.1v49.552c0 2.182-0.478 4.262-0.892 6.352 15.626 6.492 32.652 10.16 50.442 10.16z" fill="#D29B6E" p-id="7009"></path><path d="M269.9 725.176l-38.076-19.038c-17.656 27.264-48.278 45.346-83.178 45.346s-65.524-18.082-83.18-45.348l-38.076 19.04A49.544 49.544 0 0 0 0 769.49v97.604a16.516 16.516 0 0 0 16.516 16.516h264.258a16.516 16.516 0 0 0 16.516-16.516v-97.602a49.546 49.546 0 0 0-27.39-44.316z" fill="#D5DCED" p-id="7010"></path><path d="M148.646 652.386c-50.384 0-91.984-37.6-98.274-86.27-0.912-7.052 2.478-13.966 8.826-17.168 7.604-3.836 18.654-10.304 29.234-19.744 11.782-10.512 18.694-21.598 22.598-29.736 3.362-7.008 11.09-10.972 18.622-9.05 58.152 14.832 97.742 45.086 112.106 57.438 3.856 3.316 6.078 8.206 5.682 13.278-4.002 51.06-46.704 91.252-98.794 91.252z" fill="#F0C087" p-id="7011"></path><path d="M241.756 547.854c-14.362-12.352-53.954-42.606-112.106-57.438-7.532-1.922-15.26 2.042-18.622 9.05-2.956 6.164-7.842 14.016-15.092 22.032l-0.01 0.056c-2.25 2.55-4.646 5.106-7.494 7.65-10.58 9.442-21.63 15.908-29.234 19.744-6.348 3.202-9.736 10.118-8.826 17.17 5.65 43.71 39.854 78.502 83.25 85.138-19.774-13.452-34.524-31.952-34.524-64.932v-23.552c3.752-2.77 7.53-5.532 11.326-8.92a131.49 131.49 0 0 0 23.62-27.866c44.486 13.882 74.646 37.004 86.08 46.836 3.13 2.744 10.898 9.904 19.986 18.43 3.91-9.41 6.496-19.506 7.326-30.116 0.398-5.074-1.824-9.964-5.68-13.282z" fill="#E6AF78" p-id="7012"></path><path d="M10.068 739.718C3.706 748.162 0 758.52 0 769.49v97.604a16.516 16.516 0 0 0 16.516 16.516h49.548v-83.22c0-10.034-4.562-19.526-12.398-25.794L10.068 739.718z" fill="#C7CFE2" p-id="7013"></path><path d="M749.286 702.636l-138.19-50.252L512 685.418l-99.096-33.032-138.19 50.252a66.064 66.064 0 0 0-43.488 62.086v102.372a16.516 16.516 0 0 0 16.516 16.516h528.516a16.516 16.516 0 0 0 16.516-16.516v-102.372a66.062 66.062 0 0 0-43.488-62.088z" fill="#FF507D" p-id="7014"></path><path d="M494.698 718.452l-15.73 165.158h66.064l-15.73-165.158z" fill="#707487" p-id="7015"></path><path d="M529.34 741.142h-34.68a11.56 11.56 0 0 1-11.562-11.562v-44.162h57.802v44.162a11.56 11.56 0 0 1-11.56 11.562z" fill="#5B5D6E" p-id="7016"></path><path d="M774.996 719.71c11.152 11.97 17.778 27.912 17.778 45.012v102.372a16.516 16.516 0 0 1-16.516 16.516h-82.58v-55.216c0-17.522 6.96-34.326 19.35-46.714l61.968-61.97z" fill="#D23C69" p-id="7017"></path><path d="M693.678 311.778v-138.36c0-18.244-14.79-33.032-33.032-33.032h-198.194c-72.972 0-132.13 59.156-132.13 132.13v39.262a165.144 165.144 0 0 0 8.476 52.228l5.498 16.494a49.544 49.544 0 0 1 2.542 15.668v8.476H677.16v-8.476c0-5.326 0.858-10.616 2.542-15.668l5.498-16.494a165.106 165.106 0 0 0 8.478-52.228z" fill="#5A4146" p-id="7018"></path><path d="M412.904 207.482c0 37.056 30.04 67.096 67.096 67.096h9.29l4.484 130.064h183.386v-8.476c0-5.326 0.858-10.616 2.542-15.668l5.498-16.494a165.144 165.144 0 0 0 8.476-52.228V173.418c0-18.244-14.79-33.032-33.032-33.032H480c-37.056 0-67.096 30.04-67.096 67.096z" fill="#694B4B" p-id="7019"></path><path d="M412.9 536.78h198.2v148.64h-198.2z" fill="#E6AF78" p-id="7020"></path><path d="M412.904 592.62c29.176 16.902 62.954 26.732 99.096 26.732s69.922-9.83 99.096-26.732v-55.848h-198.194l0.002 55.848z" fill="#D29B6E" p-id="7021"></path><path d="M512 685.418l-52.676 52.676c-7.08 7.08-18.782 6.282-24.834-1.694l-54.618-71.968 14.286-30.106c4.216-8.884 15.212-12.14 23.584-6.98L512 685.418zM512 685.418l52.676 52.676c7.08 7.08 18.782 6.282 24.834-1.694l54.618-71.968-14.286-30.106c-4.216-8.884-15.212-12.14-23.584-6.98L512 685.418z" fill="#D23C69" p-id="7022"></path><path d="M512 586.322c-91.216 0-165.162-73.946-165.162-165.162v-19.35c0-8.76 3.48-17.162 9.674-23.358l13.682-13.682a33.032 33.032 0 0 0 9.674-23.358V301.82c0-7.648 5.136-14.292 12.578-16.05 39.062-9.226 160.616-31.08 243.338 29.76 5.372 3.95 8.342 10.44 8.342 17.108v8.774c0 8.76 3.48 17.162 9.674 23.358l13.682 13.682a33.032 33.032 0 0 1 9.674 23.358v19.35c0.006 91.216-73.94 165.162-165.156 165.162z" fill="#F0C087" p-id="7023"></path><path d="M635.786 315.532c-58.18-42.79-135.462-44.642-189.85-38.784-22.942 2.47-41.898 6.288-53.486 9.024-7.442 1.758-12.578 8.402-12.578 16.05v39.59c0 8.762-3.48 17.164-9.676 23.36l-13.682 13.682a33.034 33.034 0 0 0-9.676 23.36v19.348c0 84.448 63.42 153.97 145.204 163.84-28.498-29.678-46.108-69.896-46.108-114.292v-120.722c0-16.738 12.446-30.726 29.052-32.808 39.636-4.97 112.232-7.958 169.14 24.236v-8.776c0.004-6.668-2.972-13.16-8.34-17.108z" fill="#E6AF78" p-id="7024"></path><path d="M249.004 719.71c-11.152 11.97-17.778 27.912-17.778 45.012v102.372a16.516 16.516 0 0 0 16.516 16.516h82.58v-55.216c0-17.522-6.96-34.326-19.35-46.714l-61.968-61.97z" fill="#D23C69" p-id="7025"></path></svg>
                Team Members</span>
            </h2>
-
-
+                        <b> 所属团队：分布式计算与体系结构研究所（Institute of Distributed Computing and Architecture） </b>
             <div style="display: flex;">
                     <ul class="disc">
-                        <b> 所属团队：分布式计算与体系结构研究所（Institute of Distributed Computing and Architecture） </b>
                         <table>
                             <tr>
                                 <td>
@@ -489,9 +687,9 @@
                         </table>
                     </ul>
             </div>
+                        <b> 指导/协作指导学生 </b>
             <div style="display: flex;">
                     <ul class="disc">
-                        <b> 指导/协作指导学生 </b>
                         <table>
                             <tr>
                                 <td>
@@ -640,8 +838,6 @@
     </div>
     </div>
     </div>
-
-
-
+  </main>
 </body>
 </html>
