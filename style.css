@@ -482,3 +482,11 @@ a:hover{
     font-size:15px;
   }
 }
+
+html{
+  scroll-behavior:smooth;
+}
+
+section{
+  scroll-margin-top:calc(var(--header-height) + 20px);
+}
