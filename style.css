@@ -1,666 +1,484 @@
+/* ===============================
+   Global
+================================= */
 *{
-    margin: 0;
-    padding: 0;
-}
-p{
-    line-height:200%;
-    text-align: justify;
-  /*font-size: 14px;*/
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    padding: 10px;
-    text-align: center;
+:root{
+  --njust-purple:#7f187f;
+  --cse-blue:#264B9A;
+  --cse-gold:#C9A227;
+  --text-main:#333333;
+  --text-soft:#666666;
+  --border-light:#e8e8e8;
+  --bg-soft:#fafafa;
+
+  --container-width:1500px;
+  --page-padding:20px;
+  --sidebar-width:260px;
+  --sidebar-gap:30px;
+  --header-height:72px;
 }
 
-.custom-paragraph {
-    margin-top: 10px; /* 调整起始行间距的数值可以根据你的需要进行修改 */
+html{
+  scroll-behavior:smooth;
 }
-
-.elliptical-box span {
-    font-weight: bold;
-    font-size: 12px; /* 设置内部文字的字体大小为 14px */
-}
-
-.elliptical-box {
-    display: inline; /* 将元素变成行内块元素 */
-    padding: 0px 10px; /* 上下边距更小，左右边距可根据需要调整 */
-    border: 2px solid #9B1D98; /* 边框样式和颜色 */
-    border-radius: 8px; /* 设置圆角半径为 30px，使其呈现椭圆效果 */
-    color: #9B1D98;
-    margin-right:5%;
-    float: right; /* 向右浮动容器 */
-    line-height: 1.2; /* 设置较小的行高 */
-}
-.elliptical-box:hover {
-    background-color: #9B1D98; /* 悬停时改变背景颜色 */
-    color: #fff; /* 悬停时改变字体颜色 */
-}
-
-b.bold {
-    /*color: #9B1D98;*/
-    font-weight: bold;
-
-}
-
-ul.circle {
-list-style-type: circle; /* 使用空心圆点 */
-}
-
-ul.disc {
-list-style-type: disc; /* 使用实心圆点 */
-}
-
-ol.decimal {
-list-style-type: decimal; /* 使用数字标号 */
-}
-
-
-li{
-    /*font-size: 14px;*/
-    margin-left:1%;
-    line-height: 23px;
-    padding:5px;
-    text-align: justify;
-}
-
-h1{
-    font-family:"Times New Roman";
-    text-align: center;
-}
-
-header hr {
-    border: none; /* 移除默认边框 */
-    height: 1px; /* 设置分割线高度 */
-    background-color: #eeeeee; /* 设置分割线颜色为浅灰色 */
-    border-radius: 1px; /* 设置边缘圆角半径，增加柔和感 */
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* 添加阴影效果，增加柔和感 */
-}
-
 
 body{
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 15px; /* 设置默认字体大小为16像素 */
-    line-height: 23px;
-    color: #4a4a4a;
-    margin-top:80px;
-    margin-bottom:0px;
-    margin-right:15%;
-    margin-left:15%;
-}
-
-.box {
-	column-count: 2;
-	-moz-column-count: 2;
-	-webkit-column-count: 2;
-}
-
-/* 椭圆形容器样式 */
-#Home {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#ResearchInterests {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#News {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#Experiences {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#Publications {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#AcademicServices {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-#HonorsAndAwards {
-    padding-top: 80px;/* 60px是导航栏高度 */
-    margin-top: -80px;
- }
-
-/* CCF P样式 */
-.ccf-span {
-    color: white;
-    background-color: #264B9A; /* 默认文本颜色为蓝色 */
-    border-radius: 5px; /* 设置圆角效果，这里的10px表示圆角的大小 */
-    transition: color 0.3s ease; /* 添加过渡效果，使颜色变化更平滑 */
-}
-
-.ccf-span:hover {
-    background-color: red; /* 悬停时文本颜色变为红色 */
-}
-
-/* 椭圆形容器样式 */
-.elliptical-image {
-    width: 150px; /* 设置图片宽度 */
-    height: 200px; /* 设置图片高度 */
+  font-family:"Trebuchet MS","Microsoft YaHei",Arial,sans-serif;
+  color:var(--text-main);
+  background:#ffffff;
+  line-height:1.75;
 }
 
-    /* 页面整体布局为Flexbox */
-    .page-container {
-      display: flex;
-      flex-direction: row; /* 水平方向排列，左右双栏 */
-      flex-wrap: wrap; /* 允许分栏换行 */
-    }
-
-    /* 左侧栏样式 */
-    .left-column {
-      flex: 0 0 250px; /* 左侧栏固定宽度为200px */
-      padding: 5px;
-      /*flex: 0 0 200px; !* 左侧栏固定宽度为200px *!*/
-      /*background-color: #ffffff;*/
-      /*padding: 25px;*/
-      position: fixed; /* 固定位置 */
-      /*top: 60px; !* 顶部边距为0 *!*/
-      /*bottom: 0; !* 底部边距为0 *!*/
-      width: 10%;
-    }
-
-    /* 右侧栏样式 */
-    .right-column {
-      flex: 1; /* 右侧栏占据剩余的可用空间 */
-      padding: 20px;
-      background-color: #ffffff;
-      /*padding: 30px;*/
-      /*position: fixed; !* 固定位置 *!*/
-      margin-left: 20%;
-    }
-
-/* 图片样式 */
-.elliptical-image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%; /* 将图片显示为椭圆形 */
-    object-fit: cover; /* 图片尺寸适应容器大小，并保持图片比例 */
-    box-shadow: 0 0 10px rgba(0.1, 0.1, 0.1, 0.1); /* 添加模糊阴影效果 */
+a{
+  color:var(--cse-blue);
+  text-decoration:none;
 }
 
-/* 当鼠标悬停在链接上时的样式 */
-.navbar a:hover {
-	font-weight: bold;
+a:hover{
+  text-decoration:underline;
+  color:var(--njust-purple);
 }
 
-.hover-underline {
-  display: inline-block;
-  position: fixed;
+/* ===============================
+   Header
+================================= */
+.header{
+  width:100%;
+  background:#ffffff;
+  border-bottom:2px solid var(--border-light);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-
 
-.image-container {
-    /* 可以添加一些额外的样式来控制容器，比如宽度、高度、边框等 */
-    text-align: left; /* 确保图片从左边开始 */
-    margin-left: 70%;
+.header-container{
+  max-width:var(--container-width);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px var(--page-padding);
+  min-height:var(--header-height);
 }
 
-.image-item {
-    display: inline-block; /* 让图片所在的div并排显示 */
-    vertical-align: top; /* 垂直对齐方式，根据需要调整 */
-    margin-right: 10px; /* 图片之间的间距 */
+.site-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-shrink:0;
 }
 
-.department {
-    margin-left: 65%;
-    position: fixed;
+.top-logo-njust{
+  height:42px;
+  width:auto;
+  display:block;
 }
 
-.log {
-    margin-left: 65%;
-    position: fixed;
+.top-logo-cse{
+  height:34px;
+  width:auto;
+  display:block;
 }
 
-.hover-underline a {
-  color: #333;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden; /* 隐藏超出部分 */
+.nav{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
-.hover-underline a::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 3px;
-  background-color: #333;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%); /* 将线条居中 */
-  transition: width 0.3s ease;
+.nav a{
+  margin-left:20px;
+  font-size:17px;
+  font-weight:500;
 }
 
-.hover-underline a:hover::before {
-  width: 100%;
+.nav a:hover{
+  color:var(--njust-purple);
 }
 
-.left-column a:hover {
-    border-bottom: 1px solid #333;
+.lang-switch{
+  margin-left:22px;
+  padding-left:18px;
+  border-left:1px solid #dddddd;
+  color:var(--text-soft);
+  font-size:16px;
 }
 
-.left-column a {
-    /*padding: 10px;*/
-    font-weight: normal;
-    color: #333;
-    border-bottom: none;
+.lang-switch a{
+  margin:0 4px;
+  color:var(--text-soft);
 }
 
-/* 导航栏样式 */
-.navbar {
-	background-color: #fff;
-	padding: 10px 20px;
-	display: flex;
-	/*justify-content: flex-start;*/
-    /*justify-content: space-between;*/
-	align-items: center;
-    width: 90%;
-    height: 35px; /* 设置图片高度 */
-    margin: 0 10%;
+.lang-switch a.active{
+  color:var(--njust-purple);
+  font-weight:600;
 }
 
-.navbar a {
-      color: #333;
-      text-decoration: none;
-      margin: 0 10px;
-      padding: 5px 10px;
-      font-weight: normal;
-      border-bottom: none;
+.lang-switch a:hover{
+  color:var(--njust-purple);
+  text-decoration:none;
 }
 
-.my_img{
-    display: block;
-    margin: auto;
-    width: 45%;
+/* ===============================
+   Layout
+================================= */
+.page-container{
+  max-width:var(--container-width);
+  margin:auto;
+  position:relative;
+  padding:40px var(--page-padding);
 }
-
-.hr-edge-weak {
-		border: 0;
-		padding-top: 1px;
-		background: linear-gradient(to right, transparent, #d0d0d5, transparent);
-        padding:1px;
-	}
-
 
-/*分界线*/
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.woff2?t=1669442301374') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.woff?t=1669442301374') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_z13dgphmfd8.ttf?t=1669442301374') format('truetype');
+/* ===============================
+   Sidebar - fixed (for home pages)
+================================= */
+.sidebar{
+  width:var(--sidebar-width);
+  position:fixed;
+  top:calc(var(--header-height) + 40px);
+  left:calc((100vw - var(--container-width)) / 2 + var(--page-padding));
+  max-height:calc(100vh - var(--header-height) - 60px);
+  overflow-y:auto;
 }
 
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.woff2?t=1669442473198') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.woff?t=1669442473198') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_fajl9bpf1ws.ttf?t=1669442473198') format('truetype');
+.sidebar::-webkit-scrollbar{
+  width:6px;
 }
 
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.woff2?t=1669442556346') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.woff?t=1669442556346') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_lkjyluftmsk.ttf?t=1669442556346') format('truetype');
+.sidebar::-webkit-scrollbar-thumb{
+  background:#d8d8d8;
+  border-radius:10px;
 }
 
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.woff2?t=1669443166835') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.woff?t=1669443166835') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_y0mkll0jvt.ttf?t=1669443166835') format('truetype');
+.sidebar::-webkit-scrollbar-track{
+  background:transparent;
 }
 
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.profile{
+  text-align:center;
+  margin-bottom:20px;
 }
 
-.icon-doctorial:before {
-  content: "\eb73";
+.profile-img{
+  width:160px;
+  height:200px;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+  margin:0 auto 14px auto;
+  border:1px solid var(--border-light);
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.10);
+  background:#ffffff;
 }
 
-.icon-boshi:before {
-  content: "\ecb5";
+.profile h2{
+  font-size:20px;
+  margin-bottom:4px;
+  color:var(--njust-purple);
 }
 
-.icon-boshi:before {
-  content: "\e74f";
+.position{
+  font-size:14px;
+  color:var(--text-soft);
+  margin-top:6px;
 }
 
-.icon-boshi:before {
-  content: "\e8c6";
+.affiliation-text{
+  font-size:13px;
+  text-align:center;
+  color:var(--text-soft);
+  margin-bottom:14px;
 }
 
-/*奖牌*/
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.woff2?t=1669449362677') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.woff?t=1669449362677') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_al6y32n0nyp.ttf?t=1669449362677') format('truetype');
+.contact{
+  margin-top:20px;
+  font-size:14px;
 }
 
-.icon-boshi:before {
-  content: "\e613";
+.contact p{
+  margin-bottom:6px;
 }
 
-/* 服务 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_bey1guagad.woff2?t=1669451932222') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_bey1guagad.woff?t=1669451932222') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_bey1guagad.ttf?t=1669451932222') format('truetype');
+.contact i{
+  color:var(--cse-blue);
+  width:18px;
 }
 
-.icon-boshi:before {
-  content: "\e61f";
+.links{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
 }
 
-/* 论文 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.woff2?t=1669452169212') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.woff?t=1669452169212') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_b4a45iso3zg.ttf?t=1669452169212') format('truetype');
+.links a{
+  margin-bottom:6px;
+  font-size:14px;
 }
 
-.icon-boshi:before {
-  content: "\e612";
+.links i{
+  color:var(--cse-blue);
+  width:18px;
 }
 
-/* 庆祝 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.woff2?t=1669452429828') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.woff?t=1669452429828') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_o6scl0ry4ql.ttf?t=1669452429828') format('truetype');
+.keywords{
+  margin-top:30px;
+  padding-top:14px;
+  border-top:1px solid var(--border-light);
 }
 
-.icon-boshi:before {
-  content: "\e673";
+.keywords h3{
+  font-size:16px;
+  margin-bottom:10px;
+  color:var(--njust-purple);
 }
 
-/* 关注 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.woff2?t=1669452744421') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.woff?t=1669452744421') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_w3dkrp2lhe.ttf?t=1669452744421') format('truetype');
+.keywords ul{
+  padding-left:18px;
 }
 
-.icon-boshi:before {
-  content: "\e600";
+.keywords li{
+  margin-bottom:6px;
+  font-size:14px;
 }
 
-/* 位置 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_yewua60glps.woff2?t=1690024564308') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_yewua60glps.woff?t=1690024564308') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_yewua60glps.ttf?t=1690024564308') format('truetype');
+/* ===============================
+   Main Content
+================================= */
+.content{
+  max-width:1300px;
+  min-width:0;
+  margin-left:calc(var(--sidebar-width) + var(--sidebar-gap));
 }
 
-.icon-boshi:before {
-  content: "\e60b";
+.content h1{
+  font-size:21px;
+  margin-bottom:16px;
+  margin-top:10px;
+  border-bottom:2px solid #ece7f3;
+  padding-bottom:0px;
+  color:var(--njust-purple);
 }
 
-/* DBLP */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_yewua60glps.woff2?t=1690024564308') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_yewua60glps.woff?t=1690024564308') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_yewua60glps.ttf?t=1690024564308') format('truetype');
+.content h1:first-child,
+.content section:first-child h1{
+  margin-top:0;
 }
 
-.icon-boshi:before {
-  content: "\eb74";
+.content h2{
+  font-size:22px;
+  margin-top:28px;
+  margin-bottom:12px;
+  color:var(--cse-blue);
 }
 
-/* ORCID */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_osxqxt2gzq.woff2?t=1690025294077') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_osxqxt2gzq.woff?t=1690025294077') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_osxqxt2gzq.ttf?t=1690025294077') format('truetype');
+.content p{
+  margin-bottom:14px;
+  font-size:16px;
 }
 
-.icon-boshi:before {
-  content: "\e619";
+.content ul{
+  padding-left:20px;
+  margin-bottom:20px;
 }
 
-/* 兴趣 */
-
-/* ResearchGate */
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.woff2?t=1692693106108') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.woff?t=1692693106108') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_swtyev3n47i.ttf?t=1692693106108') format('truetype');
+.content li{
+  margin-bottom:10px;
+  font-size:16px;
 }
 
-.icon-researchgate:before {
-  content: "\ec7e";
+.content strong{
+  color:var(--njust-purple);
 }
 
-@font-face {
-  font-family: 'iconfont';  /* Project id 3793575 */
-  src: url('//at.alicdn.com/t/c/font_3793575_3q2nrj538xe.woff2?t=1690028577351') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3793575_3q2nrj538xe.woff?t=1690028577351') format('woff'),
-       url('//at.alicdn.com/t/c/font_3793575_3q2nrj538xe.ttf?t=1690028577351') format('truetype');
+/* ===============================
+   Publications Page Layout
+================================= */
+.publications-page{
+  max-width:1400px;
 }
 
-.icon-boshi:before {
-  content: "\e614";
+.publications-page .content{
+  margin-left:0;
+  max-width:100%;
 }
 
-.iconfontbig {
-  font-family: "iconfont" !important;
-  font-size: 30px;
+.publications-content{
+  max-width:1400px;
 }
 
-/* 全局属性 */
-#write {
-  max-width: 100%;
-  font-size: 1rem;
-  color: black;
-  padding: 0 10px;
-  line-height: 1.6;
-  word-spacing: 0px;
-  letter-spacing: 0px;
-  word-break: break-word;
-  word-wrap: break-word;
-  text-align: justify;
-  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.pub-intro{
+  margin-bottom:24px;
 }
 
-/*段落*/
-#write + p,
-#write blockquote p {
-  font-size: 1rem;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  margin: 0;
-  line-height: 1.5rem;
-  color: #333;
-}
-#write div[mdtype=toc] {
-  font-size: 1rem;
+.year-heading{
+  font-size:20px;
+  font-weight:600;
+  color:var(--text-main);
+  margin-top:30px;
+  margin-bottom:12px;
 }
 
-/*标题*/
-#write h1,
-#write h2,
-#write h3,
-#write h4,
-#write h5,
-#write h6 {
-  margin: 1.2em 0 1em;
-  padding: 0px;
-  font-weight: bold;
-  color: #333;
-}
-#write h1 {
-  font-size: 1.5rem;
-}
-h2 {
-    font-size: 21px;
-    border-bottom: 1px solid #9B1D98;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-h2 span {
- margin-top: 20px;
- display: inline-block;
- font-weight: bold;
- background: #ffffff;
- color: #9B1D98;
- padding: 3px 10px 1px;
- border-top-right-radius: 3px;
- border-top-left-radius: 3px;
- margin-right: 3px;
+.pub-year-block{
+  margin-bottom:30px;
 }
-h2:after {
- display: inline-block;
- content: "";
- /*vertical-align: bottom;*/
- /*border-bottom: 1.25rem solid #efebe9;*/
- /*border-right: 1.25rem solid transparent;*/
-}
 
-h3 {
-  font-size: 1.3rem;
-}
-h4 {
-  font-size: 1.2rem;
-}
-h5 {
-  /*color: #9B1D98;*/
-  font-size: 1.1rem;
-}
-h6 {
-  font-size: 1rem;
+.pub-bib-list{
+  list-style:none;
+  padding-left:0;
+  margin-bottom:0;
 }
 
-/*列表*/
-ul,
-ol {
-  list-style-type: decimal;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  padding-left: 25px;
-  color: #333;
+.pub-bib-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px dashed #e5e5e5;
 }
-ul {
-  list-style-type: circle;
-}
-ul ul {
-  list-style-type: circle;
-}
-li section {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  line-height: 1.7rem;
-  text-align: justify;
-  color: black; /* 只要是纯黑色微信编辑器就会把color这个属性吞掉。。。*/
-  font-weight: 500;
-}
 
-/*引用*/
-blockquote {
-  display: block;
-  font-size: .9em;
-  overflow: auto;
-  border-left: 3px solid #9B1D98;
-  color: #333;
-  padding: 10px 10px 10px 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  background: #fff9f9;
+.pub-bib-list li:last-child{
+  margin-bottom:0;
 }
 
-/*链接*/
-a {
-  text-decoration: none;
-  word-wrap: break-word;
-  font-weight: bold;
-  color: #264B9A;
-  border-bottom: 1px solid black;
+.pub-label{
+  flex:0 0 46px;
+  font-weight:600;
+  color:#444444;
+  line-height:1.8;
 }
 
-a:hover {
-    color: red; /* 悬停时变为红色 */
+.pub-bib-entry{
+  flex:1;
+  font-size:16px;
+  color:var(--text-main);
+  line-height:1.75;
 }
 
-/*行内代码*/
-p code,
-li code {
-  font-size: .9rem;
-  word-wrap: break-word;
-  padding: 2px 4px;
-  border-radius: 4px;
-  margin: 0 2px;
-  color:  black;
-  background-color: rgba(27,31,35,.05);
-  font-family: Operator Mono, Consolas, Monaco, Menlo, monospace;
-  word-break: break-all;
+.pub-bib-entry em{
+  color:#555555;
 }
 
-/*图片*/
-img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
+/* ===============================
+   Footer
+================================= */
+.footer{
+  max-width:var(--container-width);
+  margin:40px auto 0 auto;
+  padding:20px var(--page-padding);
+  text-align:center;
+  border-top:1px solid var(--border-light);
+  font-size:14px;
+  color:#777777;
 }
 
-span img {
-  display: inline-block;
-  border-right: 0px;
-  border-left: 0px;
+/* ===============================
+   Responsive
+================================= */
+@media (max-width:1240px){
+  .sidebar{
+    left:var(--page-padding);
+  }
 }
 
-/*表格*/
-table {
-  display: table;
-  text-align: justify;
-}
-tbody {
-  border: 0;
-}
-table tr {
-  border: 0;
-  border-top: 0px;
-  background-color: white;
-}
+@media (max-width:980px){
+  .page-container{
+    padding:24px 14px;
+  }
 
-table tr th,
-table tr td {
-  font-size: 1rem;
-  border: 1px;
-  padding: 5px 10px;
-  text-align: justify;
-}
-table tr th {
-  font-weight: normal;
+  .sidebar{
+    position:static;
+    width:100%;
+    max-height:none;
+    overflow:visible;
+    margin-bottom:30px;
+  }
+
+  .content{
+    max-width:100%;
+    margin-left:0;
+  }
+
+  .header-container{
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+
+  .nav{
+    justify-content:center;
+  }
+
+  .nav a{
+    margin:6px 8px;
+    font-size:16px;
+  }
+
+  .lang-switch{
+    margin-left:10px;
+    padding-left:12px;
+    font-size:15px;
+  }
+
+  .top-logo-njust{
+    height:38px;
+  }
+
+  .top-logo-cse{
+    height:30px;
+  }
+
+  .year-heading{
+    font-size:18px;
+  }
 }
+
+@media (max-width:640px){
+  .header{
+    position:static;
+  }
+
+  .header-container{
+    padding:12px 12px;
+  }
+
+  .profile-img{
+    width:138px;
+    height:172px;
+  }
+
+  .content h1{
+    font-size:24px;
+  }
+
+  .content h2{
+    font-size:20px;
+  }
+
+  .lang-switch{
+    border-left:none;
+    padding-left:0;
+    margin-left:0;
+    width:100%;
+    text-align:center;
+  }
+
+  .pub-bib-list li{
+    gap:8px;
+  }
+
+  .pub-label{
+    flex:0 0 40px;
+    font-size:15px;
+  }
 
-/* 行内代码 */
-span code, li code {
- color: black;
+  .pub-bib-entry{
+    font-size:15px;
+  }
 }

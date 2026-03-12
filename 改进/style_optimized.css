@@ -1,0 +1,263 @@
+/* ===============================
+   Global
+================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: "Trebuchet MS", Arial, sans-serif;
+color:#333;
+background:#ffffff;
+line-height:1.7;
+}
+
+a{
+color:#1f4e79;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+
+/* ===============================
+   Header
+================================= */
+
+.header{
+width:100%;
+background:#ffffff;
+border-bottom:1px solid #e6e6e6;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.header-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 20px;
+}
+
+.site-title{
+font-size:20px;
+font-weight:600;
+}
+
+.nav a{
+margin-left:20px;
+font-size:15px;
+}
+
+.nav a:hover{
+color:#9B1D98;
+}
+
+
+/* ===============================
+   Layout
+================================= */
+
+.page-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+padding:40px 20px;
+}
+
+
+/* ===============================
+   Sidebar
+================================= */
+
+.sidebar{
+width:260px;
+padding-right:30px;
+}
+
+.profile{
+text-align:center;
+margin-bottom:20px;
+}
+
+.profile-img{
+width:160px;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:10px;
+}
+
+.profile h2{
+font-size:20px;
+margin-bottom:4px;
+}
+
+.position{
+font-size:14px;
+color:#666;
+margin-top:6px;
+}
+
+.contact{
+margin-top:20px;
+font-size:14px;
+}
+
+.contact p{
+margin-bottom:6px;
+}
+
+.links{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+}
+
+.links a{
+margin-bottom:6px;
+font-size:14px;
+}
+
+.keywords{
+margin-top:30px;
+}
+
+.keywords h3{
+font-size:16px;
+margin-bottom:10px;
+}
+
+.keywords ul{
+padding-left:18px;
+}
+
+.keywords li{
+margin-bottom:6px;
+font-size:14px;
+}
+
+
+/* ===============================
+   Main Content
+================================= */
+
+.content{
+flex:1;
+max-width:800px;
+}
+
+.content h1{
+font-size:24px;
+margin-bottom:14px;
+margin-top:30px;
+border-bottom:1px solid #eee;
+padding-bottom:6px;
+}
+
+.content h2{
+font-size:20px;
+margin-top:24px;
+margin-bottom:10px;
+}
+
+.content p{
+margin-bottom:14px;
+}
+
+.content ul{
+padding-left:20px;
+margin-bottom:20px;
+}
+
+.content li{
+margin-bottom:8px;
+}
+
+
+/* ===============================
+   Publications
+================================= */
+
+.pub-list{
+list-style:none;
+padding-left:0;
+}
+
+.pub-list li{
+margin-bottom:16px;
+}
+
+.pub-title{
+font-weight:600;
+}
+
+.pub-authors{
+font-size:14px;
+color:#555;
+}
+
+.pub-venue{
+font-size:14px;
+color:#777;
+}
+
+.pub-tag{
+display:inline-block;
+background:#264B9A;
+color:white;
+font-size:11px;
+padding:2px 6px;
+border-radius:4px;
+margin-left:6px;
+}
+
+
+/* ===============================
+   Footer
+================================= */
+
+.footer{
+margin-top:40px;
+padding:20px;
+text-align:center;
+border-top:1px solid #eee;
+font-size:14px;
+color:#777;
+}
+
+
+/* ===============================
+   Responsive
+================================= */
+
+@media (max-width:900px){
+
+.page-container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+padding-right:0;
+margin-bottom:30px;
+text-align:center;
+}
+
+.content{
+max-width:100%;
+}
+
+.nav{
+display:none;
+}
+
+}
